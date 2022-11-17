@@ -23,6 +23,33 @@ class DataBase:
         self.cursor = self.connection.cursor()
         return
 
+    def createUser(self, first_name, last_name, email, encrypted_password):
+        # INPUTS: all table fields
+        # OUTPUTS: none
+
+        # Data Binding (Security Feature to ovoid SQL INGECTION)
+
+        data = [first_name, last_name, email, encrypted_password]
+
+        # OVOID SQL INGECTION: DO NOT CONCATINATE DATABASE QUERYS
+        self.cursor.execute(
+            "INSERT INTO Users (first_name, last_name, email, password) VALUES (?, ?, ?, ?)", data)
+        # Commit after every write operation
+        self.connection.commit()
+
+        item_id = self.cursor.lastrowid
+
+        if item_id == None:
+            return False
+        return True
+
+    def findUserByEmail(self, email):
+        # INPUTS: which item?
+        # OUTPUTS: A single Item/row
+        data = [email]
+        self.cursor.execute("SELECT * FROM Users WHERE email = ?", data)
+        return self.cursor.fetchone()
+
     def createItem(self, lot_num, item_name, vendor, exp_date):
         # INPUTS: all table fields
         # OUTPUTS: none
