@@ -1,4 +1,15 @@
+HOST = 'localhost'
+PORT = 33060
+USER = 'client'
+PASSWORD = 'clientPassword5!'
+UPLOAD_FOLDER = '/mnt/s/uploads'
+ALLOWED_EXTENSIONS = {'pdf', 'png', 'jpg', 'jpeg'}
+DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
+
+
+
 import sqlite3
+import mysqlx
 
 from datetime import datetime
 import socket
@@ -6,8 +17,6 @@ import logging
 from inspect import currentframe, getframeinfo
 
 # converts data rows into python dict
-
-
 def dict_factory(cursor, row):
     d = {}
     for idx, col in enumerate(cursor.description):
@@ -18,7 +27,7 @@ def dict_factory(cursor, row):
 class DataBase:
 
     def __init__(self):
-        self.connection = sqlite3.connect("Inventory.db")
+        self.connection = mysqlx.get_session()
         self.connection.row_factory = dict_factory  # this must come before the cursor
         self.cursor = self.connection.cursor()
         return

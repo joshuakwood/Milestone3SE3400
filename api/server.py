@@ -290,6 +290,17 @@ class MyRequestHandler(BaseHTTPRequestHandler):
             self.end_headers()
             return False
 
+    def sendData(self):
+        # retrive data from json
+        f = open('data.json')
+        data = json.load(f)
+        print(data)
+
+        self.send_response(200, "Data Sent")
+        self.send_header("Content-Type", "application/json")
+        self.end_headers()
+        self.wfile.write(bytes(json.dumps(data), "utf=8"))
+
     def listItems(self):
         if 'user_id' not in self.sessionData:
             self.send_response(401, "User Not Logged In")
@@ -501,7 +512,7 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 
     def do_POST(self):
         self.loadSessionData()
-        if self.path == "/items":
+        if self.path == "/webpage":
             self.createItem()
         elif self.path == "/users":
             self.createUser()
@@ -513,32 +524,14 @@ class MyRequestHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         self.loadSessionData()
         pathList = self.path.split("/")
-        # INPUT '/items/3' OUTPUT '['','items','3']'
-        if len(pathList) > 2:
-            collection_name = pathList[1]
-            item_id = pathList[2]
-        else:
-            collection_name = pathList[1]
-            item_id = None
-
-        if pathList[1] == "items":
-            if item_id != None:
-                # retrieve a single item by member_id
-                self.retrieveItem(item_id)
-            elif item_id == None:
-                # retrieve all items
-                self.listItems()
-            else:
-                self.handleNotFound("Item Not Found")
+        if pathList[1] == "data":
+            self.sendData()
 
         elif pathList[1] == "sessions":
             self.handleCreateAuthenticatedSession()
 
-        else:
-            self.handleNotFound("Unknown Request")
-
-        # This elif is a test example to ensure that cookies are working
-        '''
+            # This elif is a test example to ensure that cookies are working
+            '''
         elif collection_name == "cookiemonster":
             self.load_cookie()
             print("flavor: ", self.cookie)
@@ -548,8 +541,11 @@ class MyRequestHandler(BaseHTTPRequestHandler):
             self.send_cookie()
             self.end_headers()
             self.wrile.write(bytes("cookie for you!","uft-8"))
-        '''
-        # this elif statement above is not perminent
+            '''
+            # this elif statement above is not perminent
+        else:
+            self.handleNotFound("Unknown Request")
+            return False
 
     def do_PUT(self):
         self.loadSessionData()
