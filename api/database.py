@@ -6,154 +6,248 @@ UPLOAD_FOLDER = '/mnt/s/uploads'
 ALLOWED_EXTENSIONS = {'pdf', 'png', 'jpg', 'jpeg'}
 DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
 
-
-
-import sqlite3
 import mysqlx
+import json
 
 from datetime import datetime
 import socket
 import logging
 from inspect import currentframe, getframeinfo
 
-# converts data rows into python dict
-def dict_factory(cursor, row):
-    d = {}
-    for idx, col in enumerate(cursor.description):
-        d[col[0]] = row[idx]
-    return d
-
 
 class DataBase:
 
     def __init__(self):
-        self.connection = mysqlx.get_session()
-        self.connection.row_factory = dict_factory  # this must come before the cursor
-        self.cursor = self.connection.cursor()
+        self.session = mysqlx.get_session(
+            {'host': HOST, 'port': PORT, 'user': USER, 'password': PASSWORD})
+        self.schema = self.session.get_schema('headsup_data')
+        self.collection = self.schema.create_collection('user_settings', True)
+        self.users = self.schema.get_table('users')
         return
 
     def createUser(self, first_name, last_name, email, encrypted_password):
-        # INPUTS: all table fields
-        # OUTPUTS: none
-
-        # Data Binding (Security Feature to ovoid SQL INGECTION)
-
         data = [first_name, last_name, email, encrypted_password]
+        columns = ['first_name', 'last_name', 'email', 'encrypted_password']
 
-        # OVOID SQL INGECTION: DO NOT CONCATINATE DATABASE QUERYS
-        self.cursor.execute(
-            "INSERT INTO Users (first_name, last_name, email, password) VALUES (?, ?, ?, ?)", data)
-        # Commit after every write operation
-        self.connection.commit()
+        # save user login info in relational table
+        self.session.start_transaction()
+        result_rt = self.users.insert(columns).values(data).execute()
+        row_id_rt = result_rt.get_autoincrement_value()
+        warnings_rt = result_rt.get_warnings()
+        rows_effected_rt = result_rt.get_affected_items_count()
 
-        item_id = self.cursor.lastrowid
+        # Check if data was saved succesfully in relational table
+        if warnings_rt != [] and rows_effected_rt != 1:
+            self.session.rollback()
+            self.session.close()
+            error = "INSERT USER LOGIN DATA ERROR"
+            for warning in warnings_rt:
+                error += (warning + "\n")
+            self.handleReports(error, getframeinfo(currentframe()), "error")
+            return None
 
-        if item_id == None:
-            return False
-        return True
+        # save user settings in collection
+        f = open('data.json')
+        default_data = json.load(f)
+        settings_data = {'user_settings':{
+            'bias-source':1,
+            'paywall':1,
+            'subscription':1,
+            'family_friendly':1,
+            'ads':1,
+            'cyber_safety':1,
+            'cookies':1
+        }, 'websites':default_data}
+        
+        result_c = self.collection.add(
+            {'_id': int(row_id_rt), 'doc': settings_data}).execute()
+        collection_as_table = self.schema.get_collection_as_table('user_settings')
+        row_id_c = int(collection_as_table.select(
+            ["_id"]).where(("_id = '%s'" % row_id_rt)).execute().fetch_one()[0])
+        warnings_c = result_c.get_warnings()
+        rows_effected_c = result_c.get_affected_items_count()
+
+        # Check if data was saved succesfully in collection
+        if warnings_c != [] and rows_effected_c != 1:
+            self.session.rollback()
+            self.session.close()
+            error = "INSERT USER SETTINGS ERROR"
+            for warning in warnings_c:
+                error += (warning + "\n")
+            self.handleReports(error, getframeinfo(currentframe()), "error")
+            return None
+
+        # Check if id for relational table and id for colleciton match
+        if row_id_c != row_id_rt:
+            self.session.rollback()
+            self.session.close()
+            error = "INSERT ERROR - COLLECTIONS AND USER ID DO NOT MATCH"
+            for warning in warnings_c:
+                error += (warning + "\n")
+            self.handleReports(error, getframeinfo(currentframe()), "error")
+            return None
+
+        # If checks pass, commit database changes and return new user id.
+        self.session.commit()
+        self.session.close()
+        return row_id_c
 
     def findUserByEmail(self, email):
-        # INPUTS: which item?
-        # OUTPUTS: A single Item/row
-        data = [email]
-        self.cursor.execute("SELECT * FROM Users WHERE email = ?", data)
-        return self.cursor.fetchone()
+        result = self.users.select().where(("email = '%s'" % str(email))).execute()
+        columns = list(result.get_columns())
+        user = result.fetch_one()
+        if user == None:
+            return None
+        user_list = list(user)
+        user_dict = {}
+        if len(columns) == len(user_list):
+            for i in range(len(columns)):
+                user_dict[columns[i].get_column_name()] = user_list[i]
+        return user_dict
 
-    def createItem(self, lot_num, item_name, vendor, exp_date):
-        # INPUTS: all table fields
-        # OUTPUTS: none
+    def findUserById(self, user_id):
+        result = self.users.select().where(("user_id = '%s'" % str(user_id))).execute()
+        columns = list(result.get_columns())
+        user = result.fetch_one()
+        if user == None:
+            return None
+        user_list = list(user)
+        user_dict = {}
+        if len(columns) == len(user_list):
+            for i in range(len(columns)):
+                user_dict[columns[i].get_column_name()] = user_list[i]
+        return user_dict
 
-        # Data Binding (Security Feature to ovoid SQL INGECTION)
+    def updateUser(self, user_id, first_name, last_name, email):
+        self.session.start_transaction()
+        updateStatement = self.users.update()
+        updateStatement.set("first_name", str(first_name))
+        updateStatement.set("last_name", str(last_name))
+        updateStatement.set("email", str(email))
+        updateStatement.where("user_id = %s"%user_id)
+        result = updateStatement.execute()
+        warnings = result.get_warnings()
+        if warnings == []:
+            self.session.commit()
+            return True
+        for warning in warnings:
+            self.handleReports(warning, getframeinfo(currentframe()), "error")
+        self.session.rollback()
+        return False
 
-        data = [lot_num, item_name, vendor, 0, exp_date]
+    def getUserData(self, email):
+        # get user account data
+        result = self.users.select().where(("email = '%s'" % str(email))).execute()
+        columns = list(result.get_columns())
+        user_account = result.fetch_one()
+        if user_account == None:
+            return None
+        user_list = list(user_account)
+        user_account_dict = {}
+        if len(columns) == len(user_list):
+            for i in range(len(columns)):
+                user_account_dict[columns[i].get_column_name()] = user_list[i]
 
-        # OVOID SQL INGECTION: DO NOT CONCATINATE DATABASE QUERYS
-        self.cursor.execute(
-            "INSERT INTO Inventory (lot_num, item_name, vendor, Inv, exp_date) VALUES (?, ?, ?, ?, ?)", data)
-        # Commit after every write operation
-        self.connection.commit()
+        # get user settings data
+        user_settings = self.collection.get_one(user_account_dict["user_id"])
 
-        item_id = self.cursor.lastrowid
+        # combine and return data
+        user_settings["first_name"] = user_account_dict["first_name"]
+        user_settings["last_name"] = user_account_dict["last_name"]
+        user_settings["email"] = user_account_dict["email"]
+        return dict(user_settings)
 
-        if item_id == None:
+    def addFilter(self, website, email):
+        user = self.findUserByEmail(email)
+        user_settings = self.collection.get_one(user['user_id'])
+        user_settings_dict = dict(user_settings)
+        user_settings_dict["doc"]["websites"][website] = {
+            "ads": 1,
+            "cookies": 1,
+            "paywall": 1,
+            "bias-source": 1,
+            "cyber_safety": 1,
+            "subscription": 1,
+            "family_friendly": 1
+        }
+        self.collection.add_or_replace_one(user["user_id"], user_settings_dict)
+
+        user_settings = self.collection.get_one(user['user_id'])
+        user_settings_dict = dict(user_settings)
+        if website not in user_settings_dict["doc"]["websites"]:
+            self.handleReports("Add Website Attempt Failed", getframeinfo(currentframe()), "error")
             return False
-
         return True
 
-    def getAllItems(self):
-        self.cursor.execute("SELECT * FROM Inventory")
-        return self.cursor.fetchall()
+    def updateFilterSettings(self, website, email, new_filter_settings):
+        filters = ["ads",
+        "cookies",
+        "paywall",
+        "bias-source",
+        "cyber_safety",
+        "subscription",
+        "family_friendly"]
 
-    def getOneItem(self, item_id):
-        # INPUTS: which item?
-        # OUTPUTS: A single Item/row
-        data = [item_id]
-        self.cursor.execute("SELECT * FROM Inventory WHERE item_id = ?", data)
-        return self.cursor.fetchone()
-
-    def updateItem(self, item_id, lot_num, item_name, vendor, exp_date):
-        # INPUTS: id and update fields
-        # OUTPUTS: none
-        data = [lot_num, item_name, vendor, exp_date, item_id]
-        self.cursor.execute(
-            "UPDATE Inventory SET lot_num = ?, item_name = ?, vendor = ?, exp_date = ? WHERE item_id = ?", data)
-        self.connection.commit()
-
-        passedTest = True
-        item = self.getOneItem(item_id)
-
-        if item['lot_num'] != lot_num:
-            passedTest = False
-            self.handleReports('ERROR - lot_num was not updated to: ' +
-                               lot_num, getframeinfo(currentframe()), "error")
-        if item['item_name'] != item_name:
-            passedTest = False
-            self.handleReports('ERROR - item_name was not updated to: ' +
-                               item_name, getframeinfo(currentframe()), "error", False)
-        if item['vendor'] != vendor:
-            passedTest = False
-            self.handleReports('ERROR - vendor was not updated to: ' +
-                               vendor, getframeinfo(currentframe()), "error")
-        if item['exp_date'] != exp_date:
-            passedTest = False
-            self.handleReports('ERROR - exp_date was not updated to: ' +
-                               exp_date, getframeinfo(currentframe()), "error")
-
-        return passedTest
-
-    def patchInv(self, item_id, ammount):
-        # INPUTS: id and update fields
-        # OUTPUTS: none
-        item = self.getOneItem(item_id)
-        newInv = item['Inv'] + ammount
-        data = [newInv, item_id]
-        self.cursor.execute(
-            "UPDATE Inventory SET Inv = ? WHERE item_id = ?", data)
-        self.connection.commit()
-
-        item = self.getOneItem(item_id)
-        if item['Inv'] != newInv:
-            self.handleReports('ERROR - Inv for' + item_id + 'was not updated to: ' +
-                               newInv, getframeinfo(currentframe()), "error")
+        user = self.findUserByEmail(email)
+        user_settings = self.collection.get_one(user['user_id'])
+        user_settings_dict = dict(user_settings)
+        if website not in user_settings_dict["doc"]["websites"]:
+            self.handleReports("Website does not exist to edit settings.", getframeinfo(currentframe()), "error")
             return False
 
+        for i in range(len(filters)):
+            user_settings_dict["doc"]["websites"][website][filters[i]] = new_filter_settings[filters[i]]
+        self.collection.add_or_replace_one(user["user_id"], user_settings_dict)
+        #TODO: Add method to check if edits were saved, return false if not save
         return True
 
-    def deleteItem(self, item_id):
-        # INPUTS: which Item?
-        # OUTPUTS: none
-        data = [item_id]
-        self.cursor.execute("DELETE FROM Inventory WHERE item_id = ?", data)
-        self.connection.commit()
+    def deleteFilter(self, website, user_id):
+        self.session.start_transaction()
+        user_settings = self.collection.get_one(user_id)
+        user_settings_dict = dict(user_settings)
+        try:
+            user_settings_dict["doc"]["websites"].pop(website)
+            
+        except KeyError:
+            return True
+        self.collection.add_or_replace_one(
+            user_id, user_settings_dict)
 
-        item = self.getOneItem(item_id)
-        if item != None:
-            self.handleReports(
-                "ERROR - " + item + " was not deleted.", getframeinfo(currentframe()), "error")
+        # check that the website filter settings were deleted
+        user_settings = self.collection.get_one(user_id)
+        user_settings_dict = dict(user_settings)
+        if website in user_settings_dict["doc"]["websites"]:
+            self.session.rollback()
+            self.handleReports("Delete Website Settings Attempt Failed", getframeinfo(currentframe()), "error")
+            return False
+        self.session.commit()
+        return True
+
+    def deleteUser(self, user_id):
+        self.session.start_transaction()
+
+        # delete user
+        self.users.delete().where(("user_id = '%s'" % str(user_id))).execute()
+
+        if self.findUserById(user_id):
+            self.handleReports("Delete User Attempt Failed", getframeinfo(currentframe()), "error")
+            self.session.rollback()
             return False
 
-        return True
+        # delete user settings data
+        collection_as_table = self.schema.get_collection_as_table("user_settings")
+        collection_as_table.delete().where(("_id = '%s'" % str(user_id))).execute()
 
+        user_exists = self.collection.get_one(user_id)
+        if user_exists:
+            self.handleReports("Delete User Settings Attempt Failed",
+                               getframeinfo(currentframe()), "error")
+            self.session.rollback()
+            return False
+            
+        self.session.commit()
+        return True
+        
     def handleReports(self, string, frameInfo, type):
         ipAddress = str(socket.gethostbyname(socket.gethostname()))
         date_time = datetime.now().strftime("%d/%b/%Y %H:%M:%S")
@@ -173,3 +267,6 @@ class DataBase:
             logging.warning(logstring)
         else:
             logging.error(logstring)
+
+    def __del__(self):
+        self.session.close()

@@ -1,3 +1,11 @@
 {
-    "www.addsgallore.com": [1,1,1,1,1,1,1]
+    "www.addsgallore.com": {
+        "ads": 1, 
+        "cookies": 1, 
+        "paywall": 1, 
+        "bias-source": 1, 
+        "cyber_safety": 1, 
+        "subscription": 1, 
+        "family_friendly": 1
+    }
 }

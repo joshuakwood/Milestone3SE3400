@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS `headsup_data`;
+
 CREATE DATABASE IF NOT EXISTS `headsup_data`;
 
 CREATE TABLE IF NOT EXISTS `headsup_data`.`users` (
@@ -10,5 +12,8 @@ CREATE TABLE IF NOT EXISTS `headsup_data`.`users` (
     );
     
 CREATE USER IF NOT EXISTS `client`@`localhost` IDENTIFIED BY 'clientPassword5!';
-GRANT ALL PRIVILEGES ON `headsup_data`.* TO `client`@`localhost` IDENTIFIED BY 'clientPassword5!';
+GRANT ALL ON `headsup_data`.* TO `client`@`localhost`;
+FLUSH PRIVILEGES;
+
+
     
