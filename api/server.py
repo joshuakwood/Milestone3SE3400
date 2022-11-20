@@ -283,6 +283,61 @@ class MyRequestHandler(BaseHTTPRequestHandler):
             self.end_headers()
             return False
 
+    def changeUserPassword(self):
+        if 'user_id' not in self.sessionData:
+            self.send_response(401, "Not Logged In")
+            self.end_headers()
+            return
+        email = self.sessionData["user_email"]
+        length = self.headers["Content-Length"]
+        request_body = self.rfile
+        # Capture input (the entry) from the CLIENT REQUEST
+
+        # 1) read the content length from the request header
+        Content_Length = self.headers["Content-Length"]
+
+        # 2) Read from the "rfile" request body
+        request_body = self.rfile.read(int(Content_Length)).decode("utf-8")
+
+        # 3) parse the URL-encoded request body
+        parsed_body = parse_qs(request_body)
+
+        # 4) Append the new entry to the Dictionary above (TABLE)
+        try:
+            password = parsed_body["new_password"][0]
+        except KeyError:
+            message = 'ERROR - Missing password Entry.'
+            self.handleReports(message, getframeinfo(currentframe()), "error")
+            self.handleBadEntry(message)
+            return False
+
+        # Encrypt password
+        # 422 unprossessable request (User already exsists)
+        # use db.findUserByEmail(email)
+        encrypted_password = bcrypt.hash(password)
+
+        # the keys is specified by the client
+
+        db = DataBase()
+        if (db.findUserByEmail(email)):
+            passwordUpdated = db.updateUserPassword(db.findUserByEmail(email)["user_id"], encrypted_password)
+            if passwordUpdated:
+                # Respond with success (201)
+                self.send_response(201, "Password Updated")
+                self.end_headers()
+                return True
+            else:
+                # Respond with failure
+                self.send_response(500, "Database Failure")
+                self.end_headers()
+                return False
+        else:
+            message = 'INFO - User Already Exists.'
+            self.handleReports(message, getframeinfo(currentframe()), "info")
+            self.send_response(422, "User Already Exists")  # conflict code
+            self.end_headers()
+            return False
+
     def updateFilterSettings(self):
         if 'user_id' not in self.sessionData:
             self.send_response(401, "Not Logged In")
@@ -580,6 +635,9 @@ class MyRequestHandler(BaseHTTPRequestHandler):
         if pathList[1] == "users":
             if pathList[2] == "account-settings":
                 self.updateUserAccount()
+                return None
+            elif pathList[2] == "change-password":
+                self.changeUserPassword()
                 return None
             elif pathList[2] == "filter-settings":
                 self.updateFilterSettings()

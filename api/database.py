@@ -135,6 +135,21 @@ class DataBase:
         self.session.rollback()
         return False
 
+    def updateUserPassword(self, user_id, password):
+        self.session.start_transaction()
+        updateStatement = self.users.update()
+        updateStatement.set("encrypted_password", str(password))
+        updateStatement.where("user_id = %s" % user_id)
+        result = updateStatement.execute()
+        warnings = result.get_warnings()
+        if warnings == []:
+            self.session.commit()
+            return True
+        for warning in warnings:
+            self.handleReports(warning, getframeinfo(currentframe()), "error")
+        self.session.rollback()
+        return False
+
     def getUserData(self, email):
         # get user account data
         result = self.users.select().where(("email = '%s'" % str(email))).execute()
@@ -162,13 +177,13 @@ class DataBase:
         user_settings = self.collection.get_one(user['user_id'])
         user_settings_dict = dict(user_settings)
         user_settings_dict["doc"]["websites"][website] = {
-            "ads": 1,
-            "cookies": 1,
-            "paywall": 1,
-            "bias-source": 1,
-            "cyber_safety": 1,
-            "subscription": 1,
-            "family_friendly": 1
+            "ads": 0,
+            "cookies": 0,
+            "paywall": 0,
+            "bias-source": 0,
+            "cyber_safety": 0,
+            "subscription": 0,
+            "family_friendly": 0
         }
         self.collection.add_or_replace_one(user["user_id"], user_settings_dict)
 
