@@ -1,0 +1,41 @@
+.button {
+    outline: none;
+    margin: 2px 5px;
+    border: none;
+    border-radius: 3px;
+    background-color: #3768E5;
+    color: #E2E2E2;
+    line-height: 20px;
+    font-size: 12px;
+    width: fit-content;
+    block-size: fit-content;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 0.5em 2em;
+    transition: 300ms;
+}
+
+.button:hover {
+    background-color: #2a50b1;
+    transition: 300ms;
+}
+
+.button.current {
+    box-shadow: 0 0 0 2px white,
+        0 0 0 4px black;
+}
+
+.button_group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+#delete_button {
+    background-color:#e53737;
+}
+
+#delete_button:hover {
+    background-color: #b12a2a;
+}
