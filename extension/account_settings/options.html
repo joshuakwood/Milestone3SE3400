@@ -5,11 +5,13 @@
     <link rel="stylesheet" href="../common_styles/button.css">
     <link rel="stylesheet" href="options.css"> 
     <link rel="stylesheet" href="../common_styles/form.css">
+    <link rel="stylesheet" href="../Icons/icons.css">
 </head>
 
 <body>
     <div id="wrapper">
-        <section>
+        <section id="header">
+            <img src="../Icons/eye icon.png"></img>
             <h1>Heads-up Account Settings</h1>
         </section>
         <section>
@@ -51,7 +53,7 @@
                     <label>Add Website</label>
                     <input id="first_name" type="text">
                 </div>
-                <div>
+                <div id="add_button">
                     <input class="button" type="button" id="add_website" value="Add">
                 </div>
             </form>
@@ -59,25 +61,25 @@
         <section>
             <table id="website_settings">
                 <tr>
-                    <th>Website URL</th>
-                    <th>I</th>
-                    <th>I</th>
-                    <th>I</th>
-                    <th>I</th>
-                    <th>I</th>
-                    <th>I</th>
-                    <th>I</th>
+                    <th style="text-align: left;">Website URL</th>
+                    <th><img src="../Icons/advertising-icon-5.jpg"></img></th>
+                    <th><img src="../Icons/advertising-icon-5.jpg"></img></th>
+                    <th><img src="../Icons/Monetization.webp"></img></th>
+                    <th><img src="../Icons/icon-biased-evidence.png"></img></th>
+                    <th><img src="../Icons/Orange Warning.png"></img></th>
+                    <th><img src="../Icons/account.png"></img></th>
+                    <th><img src="../Icons/Red Comment Warning.png"></img></th>
                     <th></th>
                 </tr>
                 <tr>
                     <td>www.theseareads.com</td>
-                    <td>cb</td>
-                    <td>cb</td>
-                    <td>cb</td>
-                    <td>cb</td>
-                    <td>cb</td>
-                    <td>cb</td>
-                    <td>cb</td>
+                    <td><input type="checkbox" id="ads"></td>
+                    <td><input type="checkbox" id="cookies"></td>
+                    <td><input type="checkbox" id="paywall"></td>
+                    <td><input type="checkbox" id="bias-source"></td>
+                    <td><input type="checkbox" id="cyber_safety"></td>
+                    <td><input type="checkbox" id="subscription"></td>
+                    <td><input type="checkbox" id="family_friendly"></td>
                     <td><input class="button" type="button" id="remove_website" value="Remove"></td>
                 </tr>
             </table>
