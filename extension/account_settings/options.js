@@ -1,46 +1,76 @@
-let page = document.getElementById("buttonDiv");
-let selectedClassName = "current";
-const presetButtonColors = ["#3aa757", "#e8453c", "#f9bb2d", "#4688f1"];
+// trigger initSettingsData funciton on page load
+document.addEventListener("DOMContentLoaded", function() {
+  initSettingsData();
+});
 
-// Reacts to a button click by marking the selected button and saving
-// the selection
-function handleButtonClick(event) {
-    // Remove styling from the previously selected color
-    let current = event.target.parentElement.querySelector(
-        `.${selectedClassName}`
-    );
-    if (current && current !== event.target) {
-        current.classList.remove(selectedClassName);
-    }
+// login temp user 
+var login_submit = document.querySelector('#login_submit');
+login_submit.onclick = function () {
+	// remove user does not exist message if there is one
+	var userdoesnotexist = document.getElementById("userdoesnotexist");
+	if (userdoesnotexist != null) {
+		userdoesnotexist.remove()
+	}
+	// get email
+	var login_email = document.getElementById("login_email").value;
+	console.log("login_email query:",login_email);
+	// get password
+	var login_password = document.getElementById("login_password").value;
+	console.log("login_password query:",login_password);
 
-    // Mark the button as selected
-    let color = event.target.dataset.color;
-    event.target.classList.add(selectedClassName);
-    chrome.storage.sync.set({ color });
-}
 
-// Add a button to the page for each supplied color
-function constructOptions(buttonColors) {
-    chrome.storage.sync.get("color", (data) => {
-        let currentColor = data.color;
-        // For each color we were provided…
-        for (let buttonColor of buttonColors) {
-            // …create a button with that color…
-            let button = document.createElement("button");
-            button.dataset.color = buttonColor;
-            button.style.backgroundColor = buttonColor;
+	// Package and format Data
+	var data = "email=" + encodeURIComponent(login_email);
+	data += "&password=" + encodeURIComponent(login_password);
 
-            // …mark the currently selected color…
-            if (buttonColor === currentColor) {
-                button.classList.add(selectedClassName);
-            }
+	console.log("POST request data:", data)
 
-            // …and register a listener for when that button is clicked
-            button.addEventListener("click", handleButtonClick);
-            page.appendChild(button);
-        }
-    });
-}
+	// Send data to Server
+	fetch("http://localhost:8080/sessions", {
+		method: 'POST',
+		credentials: 'include',
+		body: data,
+		headers: {
+			'Content-Type': 'application/x-www-form-urlencoded',
+		}
+	}).then(function (response) {
+		// once the server responds, run this function
+		if (response.status == 201) {
+			document.getElementById("login_menu").style.display = 'none';
+			checkUserAuthentication();
+		} else {
+			var login_output = document.getElementById("login_output");
+			var userdoesnotexist = document.createElement("p");
+			userdoesnotexist.id = "userdoesnotexist";
+			userdoesnotexist.innerHTML = "User Does Not Exist!";
+			login_output.appendChild(userdoesnotexist);
+		}
+	}).catch(err => {
+		var login_output = document.getElementById("login_output");
+		var userdoesnotexist = document.createElement("p");
+		userdoesnotexist.id = "userdoesnotexist";
+		userdoesnotexist.innerHTML = "User Does Not Exist!";
+		login_output.appendChild(userdoesnotexist);
+	});
+};
 
-// Initialize the page by constructing the color options
-constructOptions(presetButtonColors);
+
+// init data function on page load
+function initSettingsData() {
+    // init button functions
+    document.getElementById("delete_button").addEventListener("click", deleteAccount);
+
+    // get data
+    loginUser()
+    accountData = fetch("http://localhost:8080/sessions").then((response) => {
+        return response.json()
+    }).then((data) => {
+        console.log(data)
+    })
+  first_name = document.getElementById("first_name");
+  first_name.value = "first name test";
+};
+
+function deleteAccount() {
+    console.log("delete button worked");
+};

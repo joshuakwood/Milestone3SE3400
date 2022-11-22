@@ -6,9 +6,10 @@
     <link rel="stylesheet" href="options.css"> 
     <link rel="stylesheet" href="../common_styles/form.css">
     <link rel="stylesheet" href="../Icons/icons.css">
+    <script src="options.js"></script>
 </head>
 
-<body>
+<body id="account_settings">
     <div id="wrapper">
         <section id="header">
             <img src="../Icons/eye icon.png"></img>
@@ -17,23 +18,23 @@
         <section>
             <form id="update_account_info">
                 <div class="text_entry">
-                    <label id="first_name" for="first_name">First Name</label>
+                    <label for="first_name">First Name</label>
                     <input id="first_name" type="text">
                 </div>
                 
                 <div class="text_entry">
-                    <label>Last Name</label>
-                    <input id="first_name" type="text">
+                    <label for="last_name">Last Name</label>
+                    <input id="last_name" type="text">
                 </div>
                 
                 <div class="text_entry">
-                    <label>New Password</label>
-                    <input id="first_name" type="text">
+                    <label for="new_password">New Password</label>
+                    <input id="new_password" type="text">
                 </div>
                 
                 <div class="text_entry">
-                    <label>Re-enter New Password</label>
-                    <input id="first_name" type="text">
+                    <label for="reenter_password">Re-enter New Password</label>
+                    <input id="reenter_password" type="text">
                 </div>
             </form>
         </section>
@@ -50,11 +51,11 @@
         <section>
             <form id="add_website">
                 <div class="text_entry">
-                    <label>Add Website</label>
-                    <input id="first_name" type="text">
+                    <label for="add_website">Add Website</label>
+                    <input id="add_website" type="text">
                 </div>
                 <div id="add_button">
-                    <input class="button" type="button" id="add_website" value="Add">
+                    <input class="button" type="button" id="add_website_submit" value="Add">
                 </div>
             </form>
         </section>
