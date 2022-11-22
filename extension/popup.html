@@ -8,6 +8,148 @@
 <body>
     <button id="changeColor"></button>
     <script src="popup.js"></script>
+    
+
+
+
+    <style>
+        
+        .container {
+          display: grid;
+          grid-template-columns: 40px 150px 30px;
+          grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 50px;
+          text-align: center;
+          position:relative;
+          width: 282px;
+          height: 388px;
+
+          
+        }
+        .column {
+          padding: 16px;
+          height: 250px;
+          margin: 5px;
+          background-color: #cccccc;
+          width: 100%;
+        }
+
+        .switch {
+  position: relative;
+  display: inline-block;
+  width: 38px;
+  height: 19px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16.5px;
+  width: 16.5px;
+  left: 0px;
+  bottom: 2.8px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+    </style>
+    </head>
+    <body>
+       <h2>Please select which icons you would like displayed.</h2>
+        <div class="container">
+           <div class="column">
+             <h2> 1 </h2>
+             <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider round"></span>
+              </label>
+
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider round"></span>
+              </label>
+
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider round"></span>
+              </label>
+
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider round"></span>
+              </label>
+
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider round"></span>
+              </label>
+
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider round"></span>
+              </label>
+
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider round"></span>
+              </label>
+
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider round"></span>
+              </label>
+           </div>
+           <div class="column">
+             <h2> 2 </h2>
+             <p>Bias/Source Checking</p>
+             <p>Account Checking</p>
+           </div>
+           <div class="column">
+             <h2> 3 </h2>
+             <img src="icons/icon-biased-evidence.png" alt="Biased Icon" width="25" height="25">
+             <img src="icons/account.png" alt="account Icon" width="25" height="25">
+           </div>
+        </div>
 </body>
 
 </html>
