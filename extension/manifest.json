@@ -4,7 +4,7 @@
     "version": "1.0",
     "manifest_version": 3,
     "background": {
-        "service_worker": "background.js"
+        "service_worker": "scripts/auth.js"
     },
     "permissions": [
         "storage",
@@ -14,18 +14,18 @@
     "action": {
         "default_popup": "popup.html",
         "default_icon": {
-            "16": "/images/get_started16.png",
-            "32": "/images/get_started32.png",
-            "48": "/images/get_started48.png",
-            "128": "/images/get_started128.png"
+            "16": "/style/Icons/eye-icon/eye-icon-16.png",
+            "32": "/style/Icons/eye-icon/eye-icon-32.png",
+            "48": "/style/Icons/eye-icon/eye-icon-48.png",
+            "128": "/style/Icons/eye-icon/eye-icon-128.png"
         }
     },
     "icons": {
-        "16": "/images/get_started16.png",
-        "32": "/images/get_started32.png",
-        "48": "/images/get_started48.png",
-        "128": "/images/get_started128.png"
+        "16": "/style/Icons/eye-icon/eye-icon-16.png",
+        "32": "/style/Icons/eye-icon/eye-icon-32.png",
+        "48": "/style/Icons/eye-icon/eye-icon-48.png",
+        "128": "/style/Icons/eye-icon/eye-icon-128.png"
     },
-    "options_page": "account_settings/options.html"
+    "options_page": "options.html"
 }
 

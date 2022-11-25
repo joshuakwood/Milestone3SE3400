@@ -2,17 +2,42 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="../common_styles/button.css">
-    <link rel="stylesheet" href="options.css"> 
-    <link rel="stylesheet" href="../common_styles/form.css">
-    <link rel="stylesheet" href="../Icons/icons.css">
-    <script src="options.js"></script>
+    <link rel="stylesheet" href="style/button.css">
+    <link rel="stylesheet" href="style/options.css"> 
+    <link rel="stylesheet" href="style/form.css">
+    <link rel="stylesheet" href="style/icons.css">
 </head>
 
 <body id="account_settings">
     <div id="wrapper">
+
+
+        <!-- this is a temporary set of inputs for development -->
+        <section id="login_menu">
+            <div id="login_output"></div>
+            <form id="update_account_info">
+                <div class="text_entry">
+                    <label for="login_email">Email</label>
+                    <input id="login_email" type="text" value="User_email">
+                </div>
+            
+                <div class="text_entry">
+                    <label for="login_password">Password</label>
+                    <input id="login_password" type="text" value="User_Password">
+                </div>
+            </form>
+        </section>
+        <section>
+            <div class="button_group">
+                <div>
+                    <input id="login_submit" class="button" type="button" value="Login">
+                </div>
+            </div>
+        </section>
+        <!-- Remove the above section -->
+
         <section id="header">
-            <img src="../Icons/eye icon.png"></img>
+            <img class="eye-icon"></img>
             <h1>Heads-up Account Settings</h1>
         </section>
         <section>
@@ -63,29 +88,32 @@
             <table id="website_settings">
                 <tr>
                     <th style="text-align: left;">Website URL</th>
-                    <th><img src="../Icons/advertising-icon-5.jpg"></img></th>
-                    <th><img src="../Icons/advertising-icon-5.jpg"></img></th>
-                    <th><img src="../Icons/Monetization.webp"></img></th>
-                    <th><img src="../Icons/icon-biased-evidence.png"></img></th>
-                    <th><img src="../Icons/Orange Warning.png"></img></th>
-                    <th><img src="../Icons/account.png"></img></th>
-                    <th><img src="../Icons/Red Comment Warning.png"></img></th>
+                    <th><img class="ads"></img></th>
+                    <th><img class="bias"></img></th>
+                    <th><img class="paywall"></img></th>
+                    <th><img class="pg13"></img></th>
+                    <th><img class="security"></img></th>
+                    <th><img class="subscription"></img></th>
+                    <th><img class="ads"></img></th>
                     <th></th>
                 </tr>
-                <tr>
+                <tr id="www.theseareads.com">
                     <td>www.theseareads.com</td>
                     <td><input type="checkbox" id="ads"></td>
-                    <td><input type="checkbox" id="cookies"></td>
+                    <td><input type="checkbox" id="bias"></td>
                     <td><input type="checkbox" id="paywall"></td>
-                    <td><input type="checkbox" id="bias-source"></td>
-                    <td><input type="checkbox" id="cyber_safety"></td>
+                    <td><input type="checkbox" id="pg13"></td>
+                    <td><input type="checkbox" id="security"></td>
                     <td><input type="checkbox" id="subscription"></td>
-                    <td><input type="checkbox" id="family_friendly"></td>
+                    <td><input type="checkbox" id="ads"></td>
                     <td><input class="button" type="button" id="remove_website" value="Remove"></td>
                 </tr>
             </table>
         </section>
     </div>
 </body>
+
+<script src="options.js"></script>
+<script src="auth.js"></script>
 
 </html>
