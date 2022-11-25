@@ -2,10 +2,37 @@
     "www.addsgallore.com": {
         "ads": 1, 
         "cookies": 1, 
+        "paywall": 0, 
+        "bias_source": 0, 
+        "cyber_safety": 0, 
+        "subscription": 0, 
+        "family_friendly": 1
+    },
+    "www.securityrisk.com": {
+        "ads": 0, 
+        "cookies": 1, 
+        "paywall": 0, 
+        "bias_source": 0, 
+        "cyber_safety": 1, 
+        "subscription": 0, 
+        "family_friendly": 0
+    },
+    "www.yummycookies.com": {
+        "ads": 0, 
+        "cookies": 1, 
+        "paywall": 0, 
+        "bias_source": 0, 
+        "cyber_safety": 0, 
+        "subscription": 0, 
+        "family_friendly": 0
+    },
+    "www.payme.com": {
+        "ads": 1, 
+        "cookies": 1, 
         "paywall": 1, 
-        "bias-source": 1, 
+        "bias_source": 0, 
         "cyber_safety": 1, 
         "subscription": 1, 
-        "family_friendly": 1
+        "family_friendly": 0
     }
 }

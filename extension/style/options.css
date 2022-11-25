@@ -23,10 +23,6 @@ h1 {
     margin-left: 0.5em;
 }
 
-#add_button {
-    justify-content:flex-end !important;
-}
-
 table {
     display:flex;
     justify-content:center;

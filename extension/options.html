@@ -6,114 +6,176 @@
     <link rel="stylesheet" href="style/options.css"> 
     <link rel="stylesheet" href="style/form.css">
     <link rel="stylesheet" href="style/icons.css">
+    <link rel="stylesheet" href="style/flag.css">
 </head>
 
 <body id="account_settings">
     <div id="wrapper">
-
-
-        <!-- this is a temporary set of inputs for development -->
-        <section id="login_menu">
-            <div id="login_output"></div>
-            <form id="update_account_info">
-                <div class="text_entry">
-                    <label for="login_email">Email</label>
-                    <input id="login_email" type="text" value="User_email">
-                </div>
-            
-                <div class="text_entry">
-                    <label for="login_password">Password</label>
-                    <input id="login_password" type="text" value="User_Password">
-                </div>
-            </form>
-        </section>
-        <section>
-            <div class="button_group">
-                <div>
-                    <input id="login_submit" class="button" type="button" value="Login">
-                </div>
-            </div>
-        </section>
-        <!-- Remove the above section -->
-
         <section id="header">
             <img class="eye-icon"></img>
-            <h1>Heads-up Account Settings</h1>
+            <h1>Heads-up</h1>
         </section>
-        <section>
-            <form id="update_account_info">
-                <div class="text_entry">
-                    <label for="first_name">First Name</label>
-                    <input id="first_name" type="text">
-                </div>
+
+
+        <!-- Login Screen -->
+        <div id="LoginScreen">
+            <section id="login_menu">
+                <h1>User Login</h1>
+                <div class="output_message"></div>
+                <form id="login_account">
+                    <div class="text_entry">
+                        <label for="login_email">Email</label>
+                        <input id="login_email" type="text">
+                    </div>
                 
-                <div class="text_entry">
-                    <label for="last_name">Last Name</label>
-                    <input id="last_name" type="text">
+                    <div class="text_entry">
+                        <label for="login_password">Password</label>
+                        <input id="login_password" type="password">
+                    </div>
+                </form>
+            </section>
+            <section>
+                <div class="button_group">
+                    <div class="button_container">
+                        <input id="createaccount" class="button on" type="button" value="Create Account">
+                    </div>
+                    <div class="button_container">
+                        <input id="login_submit" class="button on" type="button" value="Login">
+                    </div>
                 </div>
-                
-                <div class="text_entry">
-                    <label for="new_password">New Password</label>
-                    <input id="new_password" type="text">
+            </section>
+        </div>
+
+        <!-- Create User Screen -->
+        <div id="createUserScreen" style="display: none;">
+            <section>
+                <h1>Create New User</h1>
+                <div class="output_message"></div>
+                <form id="create_account">
+                    <div class="text_entry">
+                        <label for="createUser_firstName" class="prompt">First Name</label>
+                        <input type="text" id=createUser_firstName name="createUser_firstName" required class="entry"><br>
+                    </div>
+
+                    <div class="text_entry">
+                        <label for="createUser_lastName" class="prompt">Last Name</label>
+                        <input type="text" id=createUser_lastName name="createUser_lastName" required><br>
+                    </div>
+
+                    <div class="text_entry">
+                        <label for="createUser_email" class="prompt">Email</label>
+                        <input type="text" id=createUser_email name="createUser_email" required><br>
+                    </div>
+
+                    <div class="text_entry">
+                        <label for="createUser_password" class="prompt">Password</label>
+                        <input type="password" id=createUser_password name="createUser_password" required><br>
+                    </div>
+                </form>
+                <div class="button_group">
+                    <div class="button_container">
+                        <input id="backtoLogin" class="button on" type="button" value="Back">
+                    </div>
+                    <div class="button_container">
+                        <input id="createUser_submit" class="button on" type="button" value="Create Account">
+                    </div>
                 </div>
-                
-                <div class="text_entry">
-                    <label for="reenter_password">Re-enter New Password</label>
-                    <input id="reenter_password" type="text">
+            </section>
+        </div>
+
+        <!-- Settings Screen -->
+        <div id="settingsPage" style="display:none;">
+            <section>
+                <div class="output_message"></div>
+                <form id="update_account_info">
+                    <div class="text_entry">
+                        <label for="first_name">First Name</label>
+                        <input id="first_name" type="text">
+                    </div>
+                    
+                    <div class="text_entry">
+                        <label for="last_name">Last Name</label>
+                        <input id="last_name" type="text">
+                    </div>
+
+                    <div class="text_entry">
+                        <label for="email">Email</label>
+                        <input id="email" type="text">
+                    </div>
+                </form>
+            </section>
+            <section>
+                <div class="button_group">
+                    <div class="button_container">
+                        <input class="button off" type="button" id="update_account_submit_button" value="Update Account info">
+                    </div>
                 </div>
-            </form>
-        </section>
-        <section>
-            <div class="button_group">
-                <div>
-                    <input id="delete_button" class="button" type="button" id="delete_account" value="Delete Account">
+            </section>
+            <section>
+                <form>
+                    <div class="text_entry">
+                        <label for="new_password">New Password</label>
+                        <input id="new_password" type="text">
+                    </div>
+                    
+                    <div class="text_entry">
+                        <label for="reenter_password">Re-enter New Password</label>
+                        <input id="reenter_password" type="text">
+                    </div>
+                </form>
+            </section>
+            <section>
+                <div class="button_group">
+                    <div class="button_container">
+                        <input class="button off" type="button" id="update_password_submit_button" value="New Password">
+                    </div>
                 </div>
-                <div>
-                    <input class="button" type="button" id="update_account" value="Update Account info">
+            </section>
+            <section>
+                <form>
+                    <div class="text_entry">
+                        <label for="add_website">Add Website</label>
+                        <input id="add_website" type="text">
+                    </div>
+                </form>
+            </section>
+            <section>
+                <div class="button_group">
+                    <div class="button_container" id="add_website">
+                        <input class="button off" type="button" id="add_website_submit" value="Add">
+                    </div>
                 </div>
-            </div>
-        </section>
-        <section>
-            <form id="add_website">
-                <div class="text_entry">
-                    <label for="add_website">Add Website</label>
-                    <input id="add_website" type="text">
+            </section>
+            <section>
+                <div class="output_message"></div>
+                <table id="website_settings">
+                    <tr id="tableheader">
+                        <th style="text-align: left;">Website URL</th>
+                        <th><img class="ads"></img></th>
+                        <th><img class="bias"></img></th>
+                        <th><img class="paywall"></img></th>
+                        <th><img class="pg13"></img></th>
+                        <th><img class="security"></img></th>
+                        <th><img class="subscription"></img></th>
+                        <th><img class="cookie"></img></th>
+                        <th></th>
+                    </tr>
+                </table>
+            </section>
+            <section>
+                <div class="button_group">
+                    <div class="button_container">
+                        <input id="delete_button" class="button on" type="button" id="delete_account" value="Delete Account">
+                    </div>
                 </div>
-                <div id="add_button">
-                    <input class="button" type="button" id="add_website_submit" value="Add">
-                </div>
-            </form>
-        </section>
-        <section>
-            <table id="website_settings">
-                <tr>
-                    <th style="text-align: left;">Website URL</th>
-                    <th><img class="ads"></img></th>
-                    <th><img class="bias"></img></th>
-                    <th><img class="paywall"></img></th>
-                    <th><img class="pg13"></img></th>
-                    <th><img class="security"></img></th>
-                    <th><img class="subscription"></img></th>
-                    <th><img class="ads"></img></th>
-                    <th></th>
-                </tr>
-                <tr id="www.theseareads.com">
-                    <td>www.theseareads.com</td>
-                    <td><input type="checkbox" id="ads"></td>
-                    <td><input type="checkbox" id="bias"></td>
-                    <td><input type="checkbox" id="paywall"></td>
-                    <td><input type="checkbox" id="pg13"></td>
-                    <td><input type="checkbox" id="security"></td>
-                    <td><input type="checkbox" id="subscription"></td>
-                    <td><input type="checkbox" id="ads"></td>
-                    <td><input class="button" type="button" id="remove_website" value="Remove"></td>
-                </tr>
-            </table>
-        </section>
+            </section>
+        </div>
     </div>
 </body>
 
-<script src="options.js"></script>
-<script src="auth.js"></script>
+<script src="scripts/options_filter_settings.js"></script>
+<script src="scripts/options_account_settings.js"></script>
+<script src="scripts/button.js"></script>
+<script src="scripts/auth.js"></script>
 
 </html>

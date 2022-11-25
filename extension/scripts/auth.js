@@ -1,90 +1,88 @@
-// trigger initSettingsData funciton on page load
-document.addEventListener("DOMContentLoaded", function() {
-  fetchDefaultData();
-});
 
-function fetchDefaultData() {
-	fetch("http://localhost:8080/data", {
-		credentials: 'include'
-	}).then(function(response) {
-			console.log("status", response.status);
-			console.log("cookies",document.cookie);
-			if (response.status == 200) {
-					// hide login screen and display data
-					// document.getElementById("Datapage").style.display = 'block';
-					// document.getElementById("LoginScreen").style.display = 'none';
-				response.json().then(function (data) {
-					showIcons(data);  // Output data onto Document 
-				});
-			} else if (response.status == 401) {
-					// hide data and show login screen
-					// document.getElementById("Datapage").style.display = 'none';
-					// document.getElementById("LoginScreen").style.display = 'block';
-					console.log("User not logged in!")
-					console.log(response.statusText)
-			}
-		}).catch(err => {
-			console.log(err)
-		});
+
+function getCookie(cName) {
+  const name = cName + "=";
+  const cDecoded = decodeURIComponent(document.cookie); //to be careful
+  const cArr = cDecoded.split('; ');
+  let res;
+  cArr.forEach(val => {
+    if (val.indexOf(name) === 0) res = val.substring(name.length);
+  })
+  return res
 }
 
-function showIcons(data) {
-	// TODO: output data to google search results
-	console.log("Data from Server:", data);
+var createUserButton = document.querySelector('#createaccount');
+createUserButton.onclick = function () {
+	document.getElementById("LoginScreen").style.display = 'none';
+	document.getElementById("createUserScreen").style.display = 'block';
+};
+
+var Back = document.querySelector('#backtoLogin');
+backtoLogin.onclick = function () {
+	document.getElementById("LoginScreen").style.display = 'block';
+	document.getElementById("createUserScreen").style.display = 'none';
+};
+
+function removeMessage() {
+	var messageboxes = document.querySelectorAll(".output_message");
+	for (var messagebox_i = 0; messagebox_i < messageboxes.length; messagebox_i++) {
+		if (messageboxes[messagebox_i].hasChildNodes()) {
+			messageboxes[messagebox_i].removeChild(messageboxes[messagebox_i].firstChild);
+		};
+	};
+}
+
+function createMessage(string) {
+	console.log(string);
+	var messageboxes = document.querySelectorAll(".output_message");
+	for (var messagebox_i = 0; messagebox_i < messageboxes.length; messagebox_i++) {
+		var message = document.createElement("p");
+		message.innerHTML = string;
+		messageboxes[messagebox_i].appendChild(message);
+	};
 }
 
 // load myPeople from a server as JSON data
 function checkUserAuthentication() {
-	fetch("http://localhost:8080/data", {
+	fetch("http://localhost:8080/sessions", {
 		credentials: 'include'
 	}).then(function(response) {
-			console.log("status", response.status);
-			console.log("cookies",document.cookie);
-			if (response.status == 200) {
-				// hide login screen and display data
-				// document.getElementById("Datapage").style.display = 'block';
-				// document.getElementById("LoginScreen").style.display = 'none';
-		response.json().then(function (data) {
-		console.log("Data from Server:", data);
-		SERVER_DATA = data;
-		// TODO: create a new function to replace printServerData
-		// 	   that puts icons on the screen by google search results
-		printServerData();  // Output data onto Document 
-		});
-			} else if (response.status == 401) {
-				// hide data and show login screen
-				// document.getElementById("Datapage").style.display = 'none';
-				// document.getElementById("LoginScreen").style.display = 'block';
-				console.log("User not logged in!")
-				console.log(response.statusText)
-			}
-		}).catch(err => {
-			console.log(err)
-		});
+		console.log("status", response.status);
+		console.log("cookies",document.cookie);
+		if (response.status == 201) {
+			// hide login screen and display data
+			document.getElementById("settingsPage").style.display = 'block';
+			document.getElementById("LoginScreen").style.display = 'none';
+			response.json().then(function (data) {
+				removeMessage();
+				loadFilterOptions(data);
+				loadAccountOptions(data);
+			});
+		} else if (response.status == 401) {
+			// hide data and show login screen
+			document.getElementById("settingsPage").style.display = 'none';
+			document.getElementById("LoginScreen").style.display = 'block';
+			console.log("User not logged in!")
+		}
+	}).catch(err => {
+		console.log(err)
+	});
 }
 
 // login temp user 
 var login_submit = document.querySelector('#login_submit');
 login_submit.onclick = function () {
 
-	// remove user does not exist message if there is one
-	var userdoesnotexist = document.getElementById("userdoesnotexist");
-	if (userdoesnotexist != null) {
-		userdoesnotexist.remove()
-	}
-	// get email
-	var login_email = document.getElementById("login_email").value;
-	console.log("login_email query:",login_email);
-	// get password
-	var login_password = document.getElementById("login_password").value;
-	console.log("login_password query:",login_password);
+	// remove message prompt if there is one
+	removeMessage();
 
+	// get email & password
+	var login_email = document.getElementById("login_email").value;
+	var login_password = document.getElementById("login_password").value;
 
 	// Package and format Data
 	var data = "email=" + encodeURIComponent(login_email);
 	data += "&password=" + encodeURIComponent(login_password);
-
-	console.log("POST request data:", data)
 
 	// Send data to Server
 	fetch("http://localhost:8080/sessions", {
@@ -97,28 +95,52 @@ login_submit.onclick = function () {
 	}).then(function (response) {
 		// once the server responds, run this function
 		if (response.status == 201) {
-			var login_output = document.getElementById("login_output");
-			var loggedin = document.createElement("p");
-			loggedin.id = "userloggedin";
-			loggedin.innerHTML = "User is Logged in!";
-			login_output.appendChild(loggedin);
+			createMessage("User Not Logged in!");
 			checkUserAuthentication();
 		} else {
-			var login_output = document.getElementById("login_output");
-			var userdoesnotexist = document.createElement("p");
-			userdoesnotexist.id = "userdoesnotexist";
-			userdoesnotexist.innerHTML = "User Does Not Exist!";
-			login_output.appendChild(userdoesnotexist);
+			createMessage("User Does Not Exist!");
 		}
 	}).catch(err => {
-		var login_output = document.getElementById("login_output");
-		var userdoesnotexist = document.createElement("p");
-		userdoesnotexist.id = "userdoesnotexist";
-		userdoesnotexist.innerHTML = "User Does Not Exist!";
-		login_output.appendChild(userdoesnotexist);
+		createMessage("User Does Not Exist!");
 	});
 };
 
-function deleteAccount() {
-    console.log("delete button worked");
+var createUser_submit = document.querySelector('#createUser_submit');
+createUser_submit.onclick = function () {
+
+	// remove message prompt if there is one
+	removeMessage();
+
+	// get first and last name, email, and password
+	var createUser_firstName = document.getElementById("createUser_firstName").value;
+	var createUser_lastName = document.getElementById("createUser_lastName").value;
+	var createUser_email = document.getElementById("createUser_email").value;
+	var createUser_password = document.getElementById("createUser_password").value;
+
+	// Package and format Data
+	var data = "first_name=" + encodeURIComponent(createUser_firstName);
+	data += "&last_name=" + encodeURIComponent(createUser_lastName);
+	data += "&email=" + encodeURIComponent(createUser_email);
+	data += "&password=" + encodeURIComponent(createUser_password);
+
+	// Send data to Server
+	fetch("http://localhost:8080/users", {
+		method: 'POST',
+		credentials: 'include',
+		body: data,
+		headers: {
+			'Content-Type': 'application/x-www-form-urlencoded',
+		}
+	}).then(function (response) {
+		// once the server responds, run this function
+		if (response.status == 201) {
+			createMessage("New User Created!");
+		} else {
+			createMessage("User already exists!");
+		}
+	}).catch(err => {
+		createMessage("User Does Not Exist!");
+	});;
 };
+
+checkUserAuthentication()

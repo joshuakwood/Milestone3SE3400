@@ -50,7 +50,7 @@ class DataBase:
         f = open('data.json')
         default_data = json.load(f)
         settings_data = {'user_settings':{
-            'bias-source':1,
+            'bias_source': 1,
             'paywall':1,
             'subscription':1,
             'family_friendly':1,
@@ -180,7 +180,7 @@ class DataBase:
             "ads": 0,
             "cookies": 0,
             "paywall": 0,
-            "bias-source": 0,
+            "bias_source": 0,
             "cyber_safety": 0,
             "subscription": 0,
             "family_friendly": 0
@@ -198,7 +198,7 @@ class DataBase:
         filters = ["ads",
         "cookies",
         "paywall",
-        "bias-source",
+                   "bias_source",
         "cyber_safety",
         "subscription",
         "family_friendly"]

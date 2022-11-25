@@ -1,3 +1,69 @@
 
 INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 216 | Report: 127.0.1.1 - - [19/Nov/2022 21:35:50]  "INFO - User Already Exists.
 INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 336 | Report: 127.0.1.1 - - [19/Nov/2022 21:36:14]  "INFO - User Already Exists.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 216 | Report: 127.0.1.1 - - [24/Nov/2022 22:01:07]  "INFO - User Already Exists.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 473 | Report: 127.0.1.1 - - [25/Nov/2022 03:40:59]  "INFO - User Does not exist yet.
+ERROR:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 167 | Report: 127.0.1.1 - - [25/Nov/2022 03:52:29]  "ERROR - Missing first name Entry.
+ERROR:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 167 | Report: 127.0.1.1 - - [25/Nov/2022 03:54:30]  "ERROR - Missing first name Entry.
+ERROR:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 167 | Report: 127.0.1.1 - - [25/Nov/2022 04:01:42]  "ERROR - Missing first name Entry.
+ERROR:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 167 | Report: 127.0.1.1 - - [25/Nov/2022 04:01:49]  "ERROR - Missing first name Entry.
+ERROR:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 167 | Report: 127.0.1.1 - - [25/Nov/2022 04:03:19]  "ERROR - Missing first name Entry.
+ERROR:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 167 | Report: 127.0.1.1 - - [25/Nov/2022 04:03:33]  "ERROR - Missing first name Entry.
+ERROR:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 175 | Report: 127.0.1.1 - - [25/Nov/2022 04:03:38]  "ERROR - Missing last name Entry.
+ERROR:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 183 | Report: 127.0.1.1 - - [25/Nov/2022 04:03:42]  "ERROR - Missing email Entry.
+DEBUG:passlib.handlers.bcrypt:detected 'bcrypt' backend, version '3.2.0'
+DEBUG:passlib.handlers.bcrypt:'bcrypt' backend lacks $2$ support, enabling workaround
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 218 | Report: 127.0.1.1 - - [25/Nov/2022 04:05:34]  "INFO - User Already Exists.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 72 | Report: 127.0.1.1 - - [25/Nov/2022 04:10:44]  "INFO - Missing email Entry.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 72 | Report: 127.0.1.1 - - [25/Nov/2022 04:11:34]  "INFO - Missing email Entry.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 72 | Report: 127.0.1.1 - - [25/Nov/2022 04:12:12]  "INFO - Missing email Entry.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 72 | Report: 127.0.1.1 - - [25/Nov/2022 04:13:18]  "INFO - Missing email Entry.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 72 | Report: 127.0.1.1 - - [25/Nov/2022 04:13:20]  "INFO - Missing email Entry.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 72 | Report: 127.0.1.1 - - [25/Nov/2022 04:13:22]  "INFO - Missing email Entry.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 72 | Report: 127.0.1.1 - - [25/Nov/2022 04:13:22]  "INFO - Missing email Entry.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 72 | Report: 127.0.1.1 - - [25/Nov/2022 04:13:23]  "INFO - Missing email Entry.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 72 | Report: 127.0.1.1 - - [25/Nov/2022 04:13:24]  "INFO - Missing email Entry.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 72 | Report: 127.0.1.1 - - [25/Nov/2022 04:14:58]  "INFO - Missing email Entry.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 72 | Report: 127.0.1.1 - - [25/Nov/2022 04:15:00]  "INFO - Missing email Entry.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 72 | Report: 127.0.1.1 - - [25/Nov/2022 04:20:04]  "INFO - Missing email Entry.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 72 | Report: 127.0.1.1 - - [25/Nov/2022 04:20:06]  "INFO - Missing email Entry.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 218 | Report: 127.0.1.1 - - [25/Nov/2022 04:20:32]  "INFO - User Already Exists.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 218 | Report: 127.0.1.1 - - [25/Nov/2022 04:21:32]  "INFO - User Already Exists.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 218 | Report: 127.0.1.1 - - [25/Nov/2022 04:23:17]  "INFO - User Already Exists.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 218 | Report: 127.0.1.1 - - [25/Nov/2022 04:24:23]  "INFO - User Already Exists.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 218 | Report: 127.0.1.1 - - [25/Nov/2022 04:31:43]  "INFO - User Already Exists.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 218 | Report: 127.0.1.1 - - [25/Nov/2022 04:33:47]  "INFO - User Already Exists.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 218 | Report: 127.0.1.1 - - [25/Nov/2022 04:34:13]  "INFO - User Already Exists.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 72 | Report: 127.0.1.1 - - [25/Nov/2022 04:38:27]  "INFO - Missing email Entry.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 72 | Report: 127.0.1.1 - - [25/Nov/2022 04:40:36]  "INFO - Missing email Entry.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 72 | Report: 127.0.1.1 - - [25/Nov/2022 04:40:39]  "INFO - Missing email Entry.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 218 | Report: 127.0.1.1 - - [25/Nov/2022 04:40:56]  "INFO - User Already Exists.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 218 | Report: 127.0.1.1 - - [25/Nov/2022 04:40:58]  "INFO - User Already Exists.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 218 | Report: 127.0.1.1 - - [25/Nov/2022 04:41:00]  "INFO - User Already Exists.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 218 | Report: 127.0.1.1 - - [25/Nov/2022 04:41:01]  "INFO - User Already Exists.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 72 | Report: 127.0.1.1 - - [25/Nov/2022 04:42:13]  "INFO - Missing email Entry.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 72 | Report: 127.0.1.1 - - [25/Nov/2022 04:42:15]  "INFO - Missing email Entry.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 72 | Report: 127.0.1.1 - - [25/Nov/2022 04:42:50]  "INFO - Missing email Entry.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 72 | Report: 127.0.1.1 - - [25/Nov/2022 04:43:48]  "INFO - Missing email Entry.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 72 | Report: 127.0.1.1 - - [25/Nov/2022 04:43:50]  "INFO - Missing email Entry.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 72 | Report: 127.0.1.1 - - [25/Nov/2022 04:43:50]  "INFO - Missing email Entry.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 72 | Report: 127.0.1.1 - - [25/Nov/2022 04:56:02]  "INFO - Missing email Entry.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 72 | Report: 127.0.1.1 - - [25/Nov/2022 04:56:13]  "INFO - Missing email Entry.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 72 | Report: 127.0.1.1 - - [25/Nov/2022 04:56:20]  "INFO - Missing email Entry.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 72 | Report: 127.0.1.1 - - [25/Nov/2022 04:57:07]  "INFO - Missing email Entry.
+ERROR:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 167 | Report: 127.0.1.1 - - [25/Nov/2022 04:57:39]  "ERROR - Missing first name Entry.
+ERROR:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 167 | Report: 127.0.1.1 - - [25/Nov/2022 04:57:41]  "ERROR - Missing first name Entry.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 72 | Report: 127.0.1.1 - - [25/Nov/2022 04:57:48]  "INFO - Missing email Entry.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 72 | Report: 127.0.1.1 - - [25/Nov/2022 04:59:14]  "INFO - Missing email Entry.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 72 | Report: 127.0.1.1 - - [25/Nov/2022 04:59:17]  "INFO - Missing email Entry.
+ERROR:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 167 | Report: 127.0.1.1 - - [25/Nov/2022 04:59:25]  "ERROR - Missing first name Entry.
+DEBUG:passlib.handlers.bcrypt:detected 'bcrypt' backend, version '3.2.0'
+DEBUG:passlib.handlers.bcrypt:'bcrypt' backend lacks $2$ support, enabling workaround
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 218 | Report: 127.0.1.1 - - [25/Nov/2022 05:00:01]  "INFO - User Already Exists.
+ERROR:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 376 | Report: 127.0.1.1 - - [25/Nov/2022 05:02:16]  "ERROR - Missing new filter settings Entry.
+ERROR:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 376 | Report: 127.0.1.1 - - [25/Nov/2022 05:02:33]  "ERROR - Missing new filter settings Entry.
+ERROR:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 376 | Report: 127.0.1.1 - - [25/Nov/2022 05:02:34]  "ERROR - Missing new filter settings Entry.
+ERROR:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 376 | Report: 127.0.1.1 - - [25/Nov/2022 05:04:33]  "ERROR - Missing new filter settings Entry.
+ERROR:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 376 | Report: 127.0.1.1 - - [25/Nov/2022 05:09:12]  "ERROR - Missing new filter settings Entry.
+ERROR:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 376 | Report: 127.0.1.1 - - [25/Nov/2022 05:09:16]  "ERROR - Missing new filter settings Entry.
+ERROR:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 425 | Report: 127.0.1.1 - - [25/Nov/2022 07:35:26]  "ERROR - Missing website name Entry.
