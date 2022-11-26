@@ -50,7 +50,7 @@ Login User | POST | /sessions | email:(str),  password:(str) | Logs the user int
 Create User | POST | /users | first_name:(str), last_name:(str), email:(str), password:(str) | Creates a new user, does not create a login cookie.  (!IMPORTANT: the api does not have any validation for emails)
 Create Filter | POST | /filters | website:(str),  | If the user is logged in, creates a new filter for website.  Default filters for everything is set to false initially. (!IMPORTANT: the api does not have validation for urls)
 Change Filter | PUT | /users/filter-settings | website:(str), new_filter_settings:(str in json format) | If the user is logged in and filter (website) exists, this changes filter settings for a specific webiste on the users account. example: {"ads": 1,"cookies": 1,"paywall": 0,"bias-source": 1,"cyber_safety": 0,"subscription": 0,"family_friendly": 1} 
-Change Account Details | PUT | /users/account-settings | first_name:(str), last_name(str), email(str) | If the user is logged in, changes account details. !IMPORTANT: the api does not have any validation for emails.
+Change Account Details | PUT | /users/account-settings | first_name:(str), last_name:(str) | If the user is logged in, changes account details. 
 Change User Password | PUT | /users/change-password | new_password:(str) | If the user is logged in, changes account password.
 Delete User | DELETE | /users/account | None | If user is logged in, Perminently deletes user account.
 Delete Filter | DELETE | /users/filters | website:(str) | If user is logged in and website exists, Perminently deletes selected website filter settings. !IMPORTANT: the api does not have validation for urls

@@ -1,0 +1,23 @@
+.output_message * {
+    margin: 5px 5px;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    line-height: 20px;
+    font-size: 12px;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 0.5em 2em;
+    transition: 300ms;
+    width: fit-content;
+}
+
+.good_message {
+    background-color: #3de537;
+    color: #000000;
+}
+
+.bad_message {
+    background-color: #e53737;
+    color: #E2E2E2;
+}

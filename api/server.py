@@ -45,8 +45,10 @@ class MyRequestHandler(BaseHTTPRequestHandler):
     # S -> setcookie -> C
     def send_cookie(self):
         for morsel in self.cookie.values():
-            #morsel["samesite"] = "None"  # prevent postman to work
-            #morsel["secure"] = True  # prevent postman to work
+            # Turn off the next to lines for 
+            # enabling testing with postman
+            morsel["samesite"] = "None"  # prevent postman to work
+            morsel["secure"] = True  # prevent postman to work
             self.send_header("Set-Cookie", morsel.OutputString())
         return None
 
@@ -254,18 +256,10 @@ class MyRequestHandler(BaseHTTPRequestHandler):
             self.handleBadEntry(message)
             return False
 
-        try:
-            new_email = parsed_body["email"][0]
-        except KeyError:
-            message = 'ERROR - Missing email Entry.'
-            self.handleReports(message, getframeinfo(currentframe()), "error")
-            self.handleBadEntry(message)
-            return False
-
         db = DataBase()
         if (db.findUserByEmail(email)):
             userUpdated = db.updateUser(
-                db.findUserByEmail(email)["user_id"], new_first_name, new_last_name, new_email)
+                db.findUserByEmail(email)["user_id"], new_first_name, new_last_name)
             if userUpdated:
                 # Respond with success (201)
                 self.send_response(201, "New User Updated")
