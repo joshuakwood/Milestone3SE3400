@@ -14,6 +14,7 @@ function updateAddWebsiteFilterButton() {
 
 var addWebsiteButton = document.querySelector("#add_website_submit");
 addWebsiteButton.onclick = function () {
+	removeMessage()
     // get website
 	var website = document.getElementById("add_website").value;
 
@@ -27,16 +28,21 @@ addWebsiteButton.onclick = function () {
             'Content-Type': 'application/x-www-form-urlencoded'
             }
         }).then(function (response) {
-            console.log(response);
-            checkUserAuthentication();
-			var updateAccountButton = document.querySelector("#add_website_submit");
-			updateSaveButton(updateAccountButton, "off");
-			var addWebsiteInput = document.querySelector("#add_website");
-			addWebsiteInput.value = "";
+			if (response.status == 201) {
+				createMessage("New Filter Added!", "Good");
+				checkUserAuthentication();
+				var updateAccountButton = document.querySelector("#add_website_submit");
+				updateSaveButton(updateAccountButton, "off");
+				var addWebsiteInput = document.querySelector("#add_website");
+				addWebsiteInput.value = "";
+			} else {
+				createMessage("New Filter Submission Failed!  Try again later!", "Bad");
+			};
         });
 }
 
 function deleteWebsiteSetting (website_key) {
+	removeMessage()
 
     var data = "website=" + encodeURIComponent(website_key);
 	
@@ -48,8 +54,12 @@ function deleteWebsiteSetting (website_key) {
             'Content-Type': 'application/x-www-form-urlencoded'
             }
         }).then(function (response) {
-            console.log(response);
-            checkUserAuthentication();
+            if (response.status == 201) {
+				createMessage("Filter Deleted Successfully!", "Good");
+				checkUserAuthentication();
+			} else {
+				createMessage("Filter Deletion Error! Try again later!", "Bad");
+			};
         });
 }
 
@@ -211,6 +221,7 @@ function storeWebsiteSettingChanges(data, website_key) {
 
 function saveWebsiteSetting() {
 	for (var key in settingChanges) {
+		removeMessage()
         var send_data = settingChanges[key];
         
         fetch("http://localhost:8080/users/filter-settings", {
@@ -224,9 +235,10 @@ function saveWebsiteSetting() {
             console.log(response);
             if (response.status == 201) {
                 delete settingChanges[key];
+				createMessage("New Filter Settings Saved!", "Good");
                 checkUserAuthentication();
             } else {
-                createMessage("Save Failed!");
+                createMessage("Save Failed!", "Bad");
             };
         });
     }

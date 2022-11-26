@@ -67,3 +67,11 @@ ERROR:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 376 | Report: 12
 ERROR:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 376 | Report: 127.0.1.1 - - [25/Nov/2022 05:09:12]  "ERROR - Missing new filter settings Entry.
 ERROR:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 376 | Report: 127.0.1.1 - - [25/Nov/2022 05:09:16]  "ERROR - Missing new filter settings Entry.
 ERROR:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 425 | Report: 127.0.1.1 - - [25/Nov/2022 07:35:26]  "ERROR - Missing website name Entry.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 218 | Report: 127.0.1.1 - - [25/Nov/2022 22:55:48]  "INFO - User Already Exists.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 218 | Report: 127.0.1.1 - - [25/Nov/2022 22:56:06]  "INFO - User Already Exists.
+ERROR:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 425 | Report: 127.0.1.1 - - [25/Nov/2022 22:58:10]  "ERROR - Missing website name Entry.
+ERROR:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 425 | Report: 127.0.1.1 - - [25/Nov/2022 22:58:39]  "ERROR - Missing website name Entry.
+ERROR:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 255 | Report: 127.0.1.1 - - [25/Nov/2022 23:03:47]  "ERROR - Missing last name Entry.
+ERROR:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 255 | Report: 127.0.1.1 - - [25/Nov/2022 23:08:04]  "ERROR - Missing last name Entry.
+ERROR:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 255 | Report: 127.0.1.1 - - [25/Nov/2022 23:11:43]  "ERROR - Missing last name Entry.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 473 | Report: 127.0.1.1 - - [25/Nov/2022 23:12:30]  "INFO - User Does not exist yet.

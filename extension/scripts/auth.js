@@ -23,25 +23,6 @@ backtoLogin.onclick = function () {
 	document.getElementById("createUserScreen").style.display = 'none';
 };
 
-function removeMessage() {
-	var messageboxes = document.querySelectorAll(".output_message");
-	for (var messagebox_i = 0; messagebox_i < messageboxes.length; messagebox_i++) {
-		if (messageboxes[messagebox_i].hasChildNodes()) {
-			messageboxes[messagebox_i].removeChild(messageboxes[messagebox_i].firstChild);
-		};
-	};
-}
-
-function createMessage(string) {
-	console.log(string);
-	var messageboxes = document.querySelectorAll(".output_message");
-	for (var messagebox_i = 0; messagebox_i < messageboxes.length; messagebox_i++) {
-		var message = document.createElement("p");
-		message.innerHTML = string;
-		messageboxes[messagebox_i].appendChild(message);
-	};
-}
-
 // load myPeople from a server as JSON data
 function checkUserAuthentication() {
 	fetch("http://localhost:8080/sessions", {
@@ -54,7 +35,6 @@ function checkUserAuthentication() {
 			document.getElementById("settingsPage").style.display = 'block';
 			document.getElementById("LoginScreen").style.display = 'none';
 			response.json().then(function (data) {
-				removeMessage();
 				loadFilterOptions(data);
 				loadAccountOptions(data);
 			});
@@ -95,13 +75,13 @@ login_submit.onclick = function () {
 	}).then(function (response) {
 		// once the server responds, run this function
 		if (response.status == 201) {
-			createMessage("User Not Logged in!");
+			createMessage("User Not Logged in!", "Bad");
 			checkUserAuthentication();
 		} else {
-			createMessage("User Does Not Exist!");
+			createMessage("User Does Not Exist!", "Bad");
 		}
 	}).catch(err => {
-		createMessage("User Does Not Exist!");
+		createMessage("User Does Not Exist!", "Bad");
 	});
 };
 
@@ -134,12 +114,12 @@ createUser_submit.onclick = function () {
 	}).then(function (response) {
 		// once the server responds, run this function
 		if (response.status == 201) {
-			createMessage("New User Created!");
+			createMessage("New User Created!", "Good");
 		} else {
-			createMessage("User already exists!");
+			createMessage("User already exists!", "Good");
 		}
 	}).catch(err => {
-		createMessage("User Does Not Exist!");
+		createMessage("User Does Not Exist!", "Bad");
 	});;
 };
 

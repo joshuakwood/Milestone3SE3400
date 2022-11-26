@@ -1,7 +1,5 @@
 .output_message * {
     margin: 5px 5px;
-    background-color: #e53737;
-    color: #E2E2E2;
     outline: none;
     border: none;
     border-radius: 3px;
@@ -12,4 +10,14 @@
     padding: 0.5em 2em;
     transition: 300ms;
     width: fit-content;
+}
+
+.good_message {
+    background-color: #3de537;
+    color: #000000;
+}
+
+.bad_message {
+    background-color: #e53737;
+    color: #E2E2E2;
 }
