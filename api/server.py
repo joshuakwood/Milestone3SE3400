@@ -256,18 +256,10 @@ class MyRequestHandler(BaseHTTPRequestHandler):
             self.handleBadEntry(message)
             return False
 
-        try:
-            new_email = parsed_body["email"][0]
-        except KeyError:
-            message = 'ERROR - Missing email Entry.'
-            self.handleReports(message, getframeinfo(currentframe()), "error")
-            self.handleBadEntry(message)
-            return False
-
         db = DataBase()
         if (db.findUserByEmail(email)):
             userUpdated = db.updateUser(
-                db.findUserByEmail(email)["user_id"], new_first_name, new_last_name, new_email)
+                db.findUserByEmail(email)["user_id"], new_first_name, new_last_name)
             if userUpdated:
                 # Respond with success (201)
                 self.send_response(201, "New User Updated")

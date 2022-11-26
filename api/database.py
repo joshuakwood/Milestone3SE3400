@@ -118,12 +118,11 @@ class DataBase:
                 user_dict[columns[i].get_column_name()] = user_list[i]
         return user_dict
 
-    def updateUser(self, user_id, first_name, last_name, email):
+    def updateUser(self, user_id, first_name, last_name):
         self.session.start_transaction()
         updateStatement = self.users.update()
         updateStatement.set("first_name", str(first_name))
         updateStatement.set("last_name", str(last_name))
-        updateStatement.set("email", str(email))
         updateStatement.where("user_id = %s"%user_id)
         result = updateStatement.execute()
         warnings = result.get_warnings()
