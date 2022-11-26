@@ -1,0 +1,299 @@
+.container {
+    display: grid;
+    grid-template-columns: 40px 150px 30px;
+    grid-template-rows: 40px 40px 40px 40px 40px 40px 40px 40px 40px;
+    text-align: center;
+    position:relative;
+    width: 282px;
+    height: 388px;
+
+    
+  }
+  .column {
+    padding: 16px;
+    height: 250px;
+    margin: 5px;
+    width: 100%;
+
+  
+  }
+
+  .row {
+      row-gap: 10rem;
+
+  }
+
+  .switch {
+position: relative;
+display: inline-block;
+width: 38px;
+height: 19px;
+}
+
+.switch input { 
+opacity: 0;
+width: 0;
+height: 0;
+}
+
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #ccc;
+-webkit-transition: .4s;
+transition: .4s;
+}
+
+.slider:before {
+position: absolute;
+content: "";
+height: 16.5px;
+width: 16.5px;
+left: 0px;
+bottom: 2.8px;
+background-color: white;
+-webkit-transition: .4s;
+transition: .4s;
+}
+
+input:checked + .slider {
+background-color: #2196F3;
+}
+
+input:focus + .slider {
+box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+-webkit-transform: translateX(26px);
+-ms-transform: translateX(26px);
+transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+border-radius: 34px;
+}
+
+.slider.round:before {
+border-radius: 50%;
+}
+
+
+
+
+
+
+.section1 {
+grid-column: 1;
+grid-row: 1;
+background-color: white;
+color: black;
+text-align: center;
+font-size: 12px;
+}
+
+.section2 {
+    grid-column: 2;
+    grid-row: 1;
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-size: 12px;
+    }
+.section3 {
+    grid-column: 1;
+    grid-row: 2;
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-size: 12px;
+    }
+.section4 {
+    grid-column: 2;
+    grid-row: 2;
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-size: 12px;
+    }
+.section5 {
+    grid-column: 3;
+    grid-row: 2;
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-size: 12px;
+    }
+.section6 {
+    grid-column: 1;
+    grid-row: 3;
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-size: 12px;
+    }
+.section7 {
+    grid-column: 2;
+    grid-row: 3;
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-size: 12px;
+    }
+.section8 {
+    grid-column: 3;
+    grid-row: 3;
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-size: 12px;
+    }
+.section9 {
+    grid-column: 1;
+    grid-row: 4;
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-size: 12px;
+    }
+    .section10 {
+        grid-column: 2;
+        grid-row: 4;
+        background-color: white;
+        color: black;
+        text-align: center;
+        font-size: 12px;
+    }
+    .section11 {
+        grid-column: 3;
+        grid-row: 4;
+        background-color: white;
+        color: black;
+        text-align: center;
+        font-size: 12px;
+        }
+    .section12 {
+        grid-column: 1;
+        grid-row: 5;
+        background-color: white;
+        color: black;
+        text-align: center;
+        font-size: 12px;
+        }
+    .section13 {
+        grid-column: 2;
+        grid-row: 5;
+        background-color: white;
+        color: black;
+        text-align: center;
+        font-size: 12px;
+        }
+    .section14 {
+        grid-column: 3;
+        grid-row: 5;
+        background-color: white;
+        color: black;
+        text-align: center;
+        font-size: 12px;
+            }
+            .section15 {
+                grid-column: 1;
+                grid-row: 6;
+                background-color: white;
+                color: black;
+                text-align: center;
+                font-size: 12px;
+                }
+            .section16 {
+                grid-column: 2;
+                grid-row: 6;
+                background-color: white;
+                color: black;
+                text-align: center;
+                font-size: 12px;
+                }
+            .section17 {
+                grid-column: 3;
+                grid-row: 6;
+                background-color: white;
+                color: black;
+                text-align: center;
+                font-size: 12px;
+                    }
+            .section15 {
+                grid-column: 1;
+                grid-row: 7;
+                background-color: white;
+                color: black;
+                text-align: center;
+                font-size: 12px;
+                }
+            .section16 {
+                grid-column: 2;
+                grid-row: 7;
+                background-color: white;
+                color: black;
+                text-align: center;
+                font-size: 12px;
+                }
+            .section17 {
+                grid-column: 3;
+                grid-row: 7;
+                background-color: white;
+                color: black;
+                text-align: center;
+                font-size: 12px;
+                }
+            .section18 {
+                grid-column: 1;
+                grid-row: 8;
+                background-color: white;
+                color: black;
+                text-align: center;
+                font-size: 12px;
+                }
+            .section19 {
+                grid-column: 2;
+                grid-row: 8;
+                background-color: white;
+                color: black;
+                text-align: center;
+                font-size: 12px;
+                }
+            .section20 {
+                grid-column: 3;
+                grid-row: 8;
+                background-color: white;
+                color: black;
+                text-align: center;
+                font-size: 12px;
+                }
+            .section21 {
+                grid-column: 1;
+                grid-row: 9;
+                background-color: white;
+                color: black;
+                text-align: center;
+                font-size: 12px;
+                }
+            .section22 {
+                grid-column: 2;
+                grid-row: 9;
+                background-color: white;
+                color: black;
+                text-align: center;
+                font-size: 12px;
+                }
+            .section23 {
+                grid-column: 3;
+                grid-row: 9;
+                background-color: white;
+                color: black;
+                text-align: center;
+                font-size: 12px;
+                }
