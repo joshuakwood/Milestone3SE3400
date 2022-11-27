@@ -52,7 +52,9 @@ function checkUserAuthentication() {
 
 // login temp user 
 var login_submit = document.querySelector('#login_submit');
-login_submit.onclick = function () {
+login_submit.onclick = loginSubmit;
+
+function loginSubmit () {
 
 	// remove message prompt if there is one
 	removeMessage();
@@ -87,7 +89,9 @@ login_submit.onclick = function () {
 };
 
 var createUser_submit = document.querySelector('#createUser_submit');
-createUser_submit.onclick = function () {
+createUser_submit.onclick = createUser;
+
+function createUser () {
 
 	// remove message prompt if there is one
 	removeMessage();

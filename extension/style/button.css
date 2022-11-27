@@ -33,6 +33,7 @@
 .on {
     background-color: #3768E5;
     color: #E2E2E2;
+    cursor: pointer;
 }
 
 .on:hover {

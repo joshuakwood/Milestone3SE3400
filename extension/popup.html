@@ -3,6 +3,7 @@
 
 <head>
   <link rel="stylesheet" href="style/button.css">
+  <link rel="stylesheet" href="style/form.css">
   <link rel="stylesheet" href="style/settingscard.css">
   <link rel="stylesheet" href="style/popup.css">
   <link rel="stylesheet" href="style/icons.css">
@@ -13,91 +14,164 @@
   <div id=wrapper>
 
     <section class="header">
-      <img class="eye-icon"></img>
-      <h1>Heads-up Settings</h1>
+      <img class="eye-icon icon"></img>
+      <h1>Heads-up</h1>
     </section>
 
-    <section class="popup_settings_container">
+    <div id="popup_settings">
+      <h2>View Settings</h2>
+      <section class="popup_settings_container">
 
-      <div class="settings_row">
-        <label class="switch">
-          <input type="checkbox">
-          <span class="slider round"></span>
-        </label>
-        <p>Advertisement Checking</p>
-        <img class="ads"></img>
-      </div>
-
-      <div class="settings_row">
-        <label class="switch">
-          <input type="checkbox">
-          <span class="slider round"></span>
-        </label>
-        <p> Bias/Source Checking </p>
-        <img class="bias"></img>
-      </div>
-
-      <div class="settings_row">
-        <label class="switch">
-          <input type="checkbox">
-          <span class="slider round"></span>
-        </label>
-        <p>Monetization Checking</p>
-        <img class="paywall"></img>
-      </div>
-
-      <div class="settings_row">
-        <label class="switch">
-          <input type="checkbox">
-          <span class="slider round"></span>
-        </label>
-        <p>Cyber Safety Checking</p>
-        <img class="security"></img>
-      </div>
-      
-      <div class="settings_row">
-        <label class="switch">
-          <input type="checkbox">
-          <span class="slider round"></span>
-        </label>
-        <p>Family Friendly Checking</p>
-        <img class="pg13"></img>
-      </div>
-
-      <div class="settings_row">
-        <label class="switch">
-          <input type="checkbox">
-          <span class="slider round"></span>
-        </label>
-        <p>Account Checking</p>
-        <img class="subscription"></img>
-      </div>
-
-      <div class="settings_row">
-        <label class="switch">
-          <input type="checkbox">
-          <span class="slider round"></span>
-        </label>
-        <p>Cookie Checking</p>
-        <img class="cookie"></img>
-      </div>
-
-    </section>
-    <section>
-
-      <div class="button_group popup_button_group">
-
-        <div class="button_container">
-          <input id="createaccount_popup" class="button on" type="button" value="Create Account">
-
-        </div>
-        <div class="button_container">
-          <input id="login_popup" class="button on" type="button" value="Login">
+        <div class="settings_row">
+          <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider round"></span>
+          </label>
+          <p>Advertisement Checking</p>
+          <img class="ads icon"></img>
         </div>
 
-      </div>
+        <div class="settings_row">
+          <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider round"></span>
+          </label>
+          <p> Bias/Source Checking </p>
+          <img class="bias icon"></img>
+        </div>
 
-    </section>
+        <div class="settings_row">
+          <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider round"></span>
+          </label>
+          <p>Monetization Checking</p>
+          <img class="paywall icon"></img>
+        </div>
+
+        <div class="settings_row">
+          <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider round"></span>
+          </label>
+          <p>Cyber Safety Checking</p>
+          <img class="security icon"></img>
+        </div>
+        
+        <div class="settings_row">
+          <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider round"></span>
+          </label>
+          <p>Family Friendly Checking</p>
+          <img class="pg13 icon"></img>
+        </div>
+
+        <div class="settings_row">
+          <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider round"></span>
+          </label>
+          <p>Account Checking</p>
+          <img class="subscription icon"></img>
+        </div>
+
+        <div class="settings_row">
+          <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider round"></span>
+          </label>
+          <p>Cookie Checking</p>
+          <img class="cookie icon"></img>
+        </div>
+      </section>
+      <section>
+        <div class="button_group popup_button_group">
+          <div class="button_container">
+            <input id="createaccount_popup_1" class="button on" type="button" value="Create Account">
+          </div>
+          <div class="button_container">
+            <input id="login_popup" class="button on" type="button" value="Login">
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Login Screen -->
+    <div id="popup_Login" style="display:none;">
+      <section id="login_menu">
+        <h2>User Login</h2>
+        <div class="output_message"></div>
+        <form id="login_account">
+          <div class="text_entry">
+            <label for="login_email">Email</label>
+            <input id="login_email" type="text">
+          </div>
+    
+          <div class="text_entry">
+            <label for="login_password">Password</label>
+            <input id="login_password" type="password">
+          </div>
+        </form>
+      </section>
+      <section>
+        <div class="button_group popup_button_group">
+          <div class="button_container">
+            <input id="createaccount_popup_2" class="button on" type="button" value="Create Account">
+          </div>
+          <div class="button_container">
+            <input id="back_to_popupsettings_2" class="button on" type="button" value="Back">
+          </div>
+          <div class="button_container">
+            <input id="login_submit_popup" class="button on" type="button" value="Login">
+          </div>
+        </div>
+      </section>
+    </div>
+    
+    <!-- Create User Screen -->
+    <div id="popup_createUser" style="display: none;">
+      <section>
+        <h2>Create New User</h2>
+        <div class="output_message"></div>
+        <form id="create_account">
+          <div class="text_entry">
+            <label for="createUser_firstName" class="prompt">First Name</label>
+            <input type="text" id=createUser_firstName name="createUser_firstName" required class="entry"><br>
+          </div>
+    
+          <div class="text_entry">
+            <label for="createUser_lastName" class="prompt">Last Name</label>
+            <input type="text" id=createUser_lastName name="createUser_lastName" required><br>
+          </div>
+    
+          <div class="text_entry">
+            <label for="createUser_email" class="prompt">Email</label>
+            <input type="text" id=createUser_email name="createUser_email" required><br>
+          </div>
+    
+          <div class="text_entry">
+            <label for="createUser_password" class="prompt">Password</label>
+            <input type="password" id=createUser_password name="createUser_password" required><br>
+          </div>
+        </form>
+        <div class="button_group popup_button_group">
+          <div class="button_container">
+            <input id="back_to_popupsettings_1" class="button on" type="button" value="Back">
+          </div>
+          <div class="button_container">
+            <input id="createUser_submit_popup" class="button on" type="button" value="Create Account">
+          </div>
+        </div>
+      </section>
+    </div>
   </div>
 </body>
+<script src="scripts/popup.js"></script>
+<script src="scripts/options_filter_settings.js"></script>
+<script src="scripts/options_account_settings.js"></script>
+<script src="scripts/button.js"></script>
+<script src="scripts/auth.js"></script>
+<script src="scripts/message.js"></script>
+
 </html>

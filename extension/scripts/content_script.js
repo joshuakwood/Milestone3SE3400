@@ -26,7 +26,6 @@ function getData() {
 	}).catch(err => {
 		console.log(err)
 	});
-    return output_data;
 }
 
 getData();

@@ -7,7 +7,7 @@
           "cyber_safety": 1, 
           "subscription": 0, 
           "family_friendly": 1},
-  "foxnews.com": {
+  "www.foxnews.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -15,7 +15,7 @@
           "cyber_safety": 0, 
           "subscription": 0, 
           "family_friendly": 0},
-  "wsj.com": {
+  "www.wsj.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 1, 
@@ -23,7 +23,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "oann.com": {
+  "www.oann.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -31,7 +31,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "washingtonpost.com": {
+  "www.washingtonpost.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 1, 
@@ -39,7 +39,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "nytimes.com": {
+  "www.nytimes.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 1, 
@@ -47,7 +47,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "msnbc.com": {
+  "www.msnbc.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -55,7 +55,7 @@
           "cyber_safety": 0, 
           "subscription": 0, 
           "family_friendly": 0},
-  "kyivpost.com": {
+  "www.kyivpost.com": {
           "ads": 1, 
           "cookies": 1, 
           "paywall": 1, 
@@ -63,7 +63,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "newsweek.com": {
+  "www.newsweek.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 1, 
@@ -71,7 +71,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "thetimes.com": {
+  "www.thetimes.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 1, 
@@ -79,7 +79,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "ft.com": {
+  "www.ft.com": {
           "ads": 0, 
           "cookies": 1, 
           "paywall": 1, 
@@ -87,7 +87,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "haaretz.com": {
+  "www.haaretz.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 1, 
@@ -95,7 +95,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "bostonglobe.com": {
+  "www.bostonglobe.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 1, 
@@ -103,7 +103,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "theaustralian.com": {
+  "www.theaustralian.com": {
           "ads": 1, 
           "cookies": 0, 
           "paywall": 1, 
@@ -111,7 +111,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "smh.com": {
+  "www.smh.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 1, 
@@ -119,7 +119,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "theage.com": {
+  "www.theage.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 1, 
@@ -127,7 +127,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "bloomberg.com": {
+  "www.bloomberg.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 1, 
@@ -135,7 +135,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "theglobeandmail.com": {
+  "www.theglobeandmail.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 1, 
@@ -143,7 +143,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "outlook.com": {
+  "www.outlook.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -151,7 +151,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "shopify.com": {
+  "www.shopify.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -159,7 +159,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "wordpress.com": {
+  "www.wordpress.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -167,7 +167,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "godaddy.com": {
+  "www.godaddy.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -175,7 +175,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "paypal.com": {
+  "www.paypal.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -183,7 +183,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "ebay.com": {
+  "www.ebay.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -191,7 +191,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "etsy.com": {
+  "www.etsy.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -199,7 +199,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "amazon.com": {
+  "www.amazon.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -207,7 +207,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "hubspot.com": {
+  "www.hubspot.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -215,7 +215,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "salesforce.com": {
+  "www.salesforce.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -223,7 +223,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "trello.com": {
+  "www.trello.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -231,7 +231,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "dropbox.com": {
+  "www.dropbox.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -239,7 +239,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "facebook.com": {
+  "www.facebook.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -247,7 +247,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "twitter.com": {
+  "www.twitter.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -256,7 +256,7 @@
           "subscription": 1, 
           "family_friendly": 0
       },
-  "disneyplus.com": {
+  "www.disneyplus.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 1, 
@@ -264,7 +264,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "netflix.com": {
+  "www.netflix.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 1, 
@@ -272,7 +272,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "hulu.com": {
+  "www.hulu.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 1, 
@@ -280,7 +280,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "peacock.com": {
+  "www.peacock.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 1, 
@@ -288,7 +288,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "hbomax.com": {
+  "www.hbomax.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 1, 
@@ -296,7 +296,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "snapchat.com": {
+  "www.snapchat.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -304,7 +304,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "instagram.com": {
+  "www.instagram.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -312,7 +312,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "spotify.com": {
+  "www.spotify.com": {
           "ads": 1, 
           "cookies": 0, 
           "paywall": 1, 
@@ -320,7 +320,7 @@
           "cyber_safety": 0, 
           "subscription": 1, 
           "family_friendly": 0},
-  "17ebook.co": {
+  "www.17ebook.co": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -328,7 +328,7 @@
           "cyber_safety": 1, 
           "subscription": 0, 
           "family_friendly": 1},
-  "aladel.net": {
+  "www.aladel.net": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -336,7 +336,7 @@
           "cyber_safety": 1, 
           "subscription": 0, 
           "family_friendly": 1},
-  "bpwhamburgorchardpark.org": {
+  "www.bpwhamburgorchardpark.org": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -344,7 +344,7 @@
           "cyber_safety": 1, 
           "subscription": 0, 
           "family_friendly": 1},
-  "clicnews.com": {
+  "www.clicnews.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -352,7 +352,7 @@
           "cyber_safety": 1, 
           "subscription": 0, 
           "family_friendly": 1},
-  "dfwdiesel.net": {
+  "www.dfwdiesel.net": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -360,7 +360,7 @@
           "cyber_safety": 1, 
           "subscription": 0, 
           "family_friendly": 1},
-  "divineenterprises.net": {
+  "www.divineenterprises.net": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -368,7 +368,7 @@
           "cyber_safety": 1, 
           "subscription": 0, 
           "family_friendly": 1},
-  "gardenrestaurantandcatering.com": {
+  "www.gardenrestaurantandcatering.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -376,7 +376,7 @@
           "cyber_safety": 1, 
           "subscription": 0, 
           "family_friendly": 1},
-  "ginedis.com": {
+  "www.ginedis.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -384,7 +384,7 @@
           "cyber_safety": 1, 
           "subscription": 0, 
           "family_friendly": 1},
-  "gncr.org": {
+  "www.gncr.org": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -392,7 +392,7 @@
           "cyber_safety": 1, 
           "subscription": 0, 
           "family_friendly": 1},
-  "hdvideoforums.org": {
+  "www.hdvideoforums.org": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -400,7 +400,7 @@
           "cyber_safety": 1, 
           "subscription": 0, 
           "family_friendly": 1},
-  "hihanin.com": {
+  "www.hihanin.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -408,7 +408,7 @@
           "cyber_safety": 1, 
           "subscription": 0, 
           "family_friendly": 1},
-  "kingfamilyphotoalbum.com": {
+  "www.kingfamilyphotoalbum.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -416,7 +416,7 @@
           "cyber_safety": 1, 
           "subscription": 0, 
           "family_friendly": 1},
-  "likaraoke.com": {
+  "www.likaraoke.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -424,7 +424,7 @@
           "cyber_safety": 1, 
           "subscription": 0, 
           "family_friendly": 1},
-  "mactep.org": {
+  "www.mactep.org": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -432,7 +432,7 @@
           "cyber_safety": 1, 
           "subscription": 0, 
           "family_friendly": 1},
-  "magic4you.nu": {
+  "www.magic4you.nu": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -440,7 +440,7 @@
           "cyber_safety": 1, 
           "subscription": 0, 
           "family_friendly": 1},
-  "marbling.pe.kr": {
+  "www.marbling.pe.kr": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -448,7 +448,7 @@
           "cyber_safety": 1, 
           "subscription": 0, 
           "family_friendly": 1},
-  "nacjalneg.info": {
+  "www.nacjalneg.info": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -456,7 +456,7 @@
           "cyber_safety": 1, 
           "subscription": 0, 
           "family_friendly": 1},
-  "pronline.ru": {
+  "www.pronline.ru": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -464,7 +464,7 @@
           "cyber_safety": 1, 
           "subscription": 0, 
           "family_friendly": 1},
-  "purplehoodie.com": {
+  "www.purplehoodie.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -472,7 +472,7 @@
           "cyber_safety": 1, 
           "subscription": 0, 
           "family_friendly": 1},
-  "qsng.cn": {
+  "www.qsng.cn": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -480,7 +480,7 @@
           "cyber_safety": 1, 
           "subscription": 0, 
           "family_friendly": 1},
-  "seksburada.net": {
+  "www.seksburada.net": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -488,7 +488,7 @@
           "cyber_safety": 1, 
           "subscription": 0, 
           "family_friendly": 1},
-  "sportsmansclub.net": {
+  "www.sportsmansclub.net": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -496,7 +496,7 @@
           "cyber_safety": 1, 
           "subscription": 0, 
           "family_friendly": 1},
-  "stock888.cn": {
+  "www.stock888.cn": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -504,7 +504,7 @@
           "cyber_safety": 1, 
           "subscription": 0, 
           "family_friendly": 1},
-  "tathli.com": {
+  "www.tathli.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -512,7 +512,7 @@
           "cyber_safety": 1, 
           "subscription": 0, 
           "family_friendly": 1},
-  "teamclouds.com": {
+  "www.teamclouds.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -520,7 +520,7 @@
           "cyber_safety": 1, 
           "subscription": 0, 
           "family_friendly": 1},
-  "texaswhitetailfever.com": {
+  "www.texaswhitetailfever.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -528,7 +528,7 @@
           "cyber_safety": 1, 
           "subscription": 0, 
           "family_friendly": 1},
-  "wadefamilytree.org": {
+  "www.wadefamilytree.org": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -536,7 +536,7 @@
           "cyber_safety": 1, 
           "subscription": 0, 
           "family_friendly": 1},
-  "xnescat.info": {
+  "www.xnescat.info": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
@@ -544,7 +544,7 @@
           "cyber_safety": 1, 
           "subscription": 0, 
           "family_friendly": 1},
-  "yt118.com": {
+  "www.yt118.com": {
           "ads": 0, 
           "cookies": 0, 
           "paywall": 0, 
