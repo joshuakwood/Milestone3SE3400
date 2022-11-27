@@ -2,12 +2,102 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="button.css">
+  <link rel="stylesheet" href="style/button.css">
+  <link rel="stylesheet" href="style/settingscard.css">
+  <link rel="stylesheet" href="style/popup.css">
+  <link rel="stylesheet" href="style/icons.css">
+  <link rel="stylesheet" href="style/slideswitch.css">
 </head>
 
-<body>
-    <button id="changeColor"></button>
-    <script src="popup.js"></script>
-</body>
+<body id="popup_card">
+  <div id=wrapper>
 
+    <section class="header">
+      <img class="eye-icon"></img>
+      <h1>Heads-up Settings</h1>
+    </section>
+
+    <section class="popup_settings_container">
+
+      <div class="settings_row">
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider round"></span>
+        </label>
+        <p>Advertisement Checking</p>
+        <img class="ads"></img>
+      </div>
+
+      <div class="settings_row">
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider round"></span>
+        </label>
+        <p> Bias/Source Checking </p>
+        <img class="bias"></img>
+      </div>
+
+      <div class="settings_row">
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider round"></span>
+        </label>
+        <p>Monetization Checking</p>
+        <img class="paywall"></img>
+      </div>
+
+      <div class="settings_row">
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider round"></span>
+        </label>
+        <p>Cyber Safety Checking</p>
+        <img class="security"></img>
+      </div>
+      
+      <div class="settings_row">
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider round"></span>
+        </label>
+        <p>Family Friendly Checking</p>
+        <img class="pg13"></img>
+      </div>
+
+      <div class="settings_row">
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider round"></span>
+        </label>
+        <p>Account Checking</p>
+        <img class="subscription"></img>
+      </div>
+
+      <div class="settings_row">
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider round"></span>
+        </label>
+        <p>Cookie Checking</p>
+        <img class="cookie"></img>
+      </div>
+
+    </section>
+    <section>
+
+      <div class="button_group popup_button_group">
+
+        <div class="button_container">
+          <input id="createaccount_popup" class="button on" type="button" value="Create Account">
+
+        </div>
+        <div class="button_container">
+          <input id="login_popup" class="button on" type="button" value="Login">
+        </div>
+
+      </div>
+
+    </section>
+  </div>
+</body>
 </html>

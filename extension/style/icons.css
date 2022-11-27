@@ -1,0 +1,38 @@
+img {
+    width: 28px;
+    height: 28px;
+}
+
+.eye-icon {
+    content: url("icons/eye-icon/eye-icon-128.png");
+}
+
+.ads {
+    content: url("icons/ads-warning-icon.png");
+}
+
+.bias {
+    content: url("icons/bias-warning-icon.png");
+}
+
+.paywall {
+    content: url("icons/paywall-warning-icon.png");
+}
+
+.pg13 {
+    content: url("icons/pg13-warning-icon.png");
+}
+
+.security {
+    content: url("icons/security-warning-icon.png");
+}
+
+.subscription {
+    content: url("icons/subscription-warning-icon.png");
+}
+
+.cookie {
+    content: url("icons/cookie.png");
+}
+
+

@@ -1,0 +1,51 @@
+#popup_card {
+    width: min-content;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items:center;
+    margin: 1em;
+}
+
+.header h1 {
+    margin: 0;
+    margin-left: 15px;
+}
+
+.popup_settings_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.settings_row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.settings_row label {
+    margin: 1em;
+}
+
+.settings_row img {
+    margin: 1em;
+}
+
+.settings_row p {
+    text-align: left;
+    width: 50%;
+    margin: 0em 1em;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.popup_button_group {
+    margin-top: 2em;
+    margin-bottom: 1em;
+    justify-content: space-evenly !important;
+}

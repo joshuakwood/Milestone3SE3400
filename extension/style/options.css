@@ -1,0 +1,55 @@
+
+body {
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+}
+
+section {
+    margin-top: 1em;
+    margin-bottom: 3em;
+}
+
+#header {
+    display:flex;
+    justify-items:flex-start;
+    flex-wrap:nowrap;
+    flex-direction:row;
+    align-items:center;
+    margin-left: 1em;
+}
+
+h1 {
+    margin-left: 0.5em;
+}
+
+table {
+    display:flex;
+    justify-content:center;
+    border-spacing: 1.5em;
+    width: 100%;
+    font-size: medium;
+}
+
+td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}
+
+td,th {
+    width: 100%;
+    overflow:hidden;
+    padding-left: 0.1em;
+    padding-right: 0.1em;
+    text-align:center;
+}
+
+@media only screen and (max-width: 480px) {
+
+    /* horizontal scrollbar for tables if mobile screen */
+    .tablemobile {
+        overflow-x: auto;
+        display: block;
+    }
+}

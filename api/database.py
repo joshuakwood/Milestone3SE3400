@@ -50,7 +50,7 @@ class DataBase:
         f = open('data.json')
         default_data = json.load(f)
         settings_data = {'user_settings':{
-            'bias-source':1,
+            'bias_source': 1,
             'paywall':1,
             'subscription':1,
             'family_friendly':1,
@@ -118,12 +118,11 @@ class DataBase:
                 user_dict[columns[i].get_column_name()] = user_list[i]
         return user_dict
 
-    def updateUser(self, user_id, first_name, last_name, email):
+    def updateUser(self, user_id, first_name, last_name):
         self.session.start_transaction()
         updateStatement = self.users.update()
         updateStatement.set("first_name", str(first_name))
         updateStatement.set("last_name", str(last_name))
-        updateStatement.set("email", str(email))
         updateStatement.where("user_id = %s"%user_id)
         result = updateStatement.execute()
         warnings = result.get_warnings()
@@ -180,7 +179,7 @@ class DataBase:
             "ads": 0,
             "cookies": 0,
             "paywall": 0,
-            "bias-source": 0,
+            "bias_source": 0,
             "cyber_safety": 0,
             "subscription": 0,
             "family_friendly": 0
@@ -198,7 +197,7 @@ class DataBase:
         filters = ["ads",
         "cookies",
         "paywall",
-        "bias-source",
+                   "bias_source",
         "cyber_safety",
         "subscription",
         "family_friendly"]

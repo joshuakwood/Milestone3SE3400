@@ -1,0 +1,9 @@
+Python==3.10.6
+bcrypt==3.2.0
+jsonpatch==1.32
+jsonpointer==2.0
+jsonschema==3.2.0
+mysql-connector-python==8.0.31
+passlib==1.7.4
+pip==22.0.2
+requests==2.25.1
