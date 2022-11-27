@@ -3,9 +3,19 @@
     "description": "Flags Google search reults with useful information.",
     "version": "1.0",
     "manifest_version": 3,
-    "background": {
-        "service_worker": "scripts/auth.js"
-    },
+
+    "content_scripts": [
+        {
+            "matches": ["http://www.google.com/*", "https://www.google.com/*"],
+            "js": [ 
+                "scripts/add_icons.js",
+                "scripts/auth.js",
+                "scripts/options_filter_settings.js",
+                "scripts/options_account_settings.js",
+                "scripts/content_script.js"
+            ]
+        }
+    ],
     "permissions": [
         "storage",
         "activeTab",

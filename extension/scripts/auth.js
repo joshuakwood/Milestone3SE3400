@@ -37,6 +37,7 @@ function checkUserAuthentication() {
 			response.json().then(function (data) {
 				loadFilterOptions(data);
 				loadAccountOptions(data);
+				return data;
 			});
 		} else if (response.status == 401) {
 			// hide data and show login screen
