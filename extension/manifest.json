@@ -5,13 +5,14 @@
     "manifest_version": 3,
     "content_scripts": [
         {
-            "matches": ["http://www.google.com/*", "https://www.google.com/*"],
+            "matches": ["*://www.google.com/*", "*://www.google.com/*"],
             "js": [ 
-                "scripts/options_filter_settings.js",
-                "scripts/options_account_settings.js",
                 "scripts/button.js",
-                "scripts/auth.js",
+                "scripts/popup.js",
+                "scripts/popup_settings.js",
                 "scripts/message.js",
+                "scripts/add_icons.js",
+                "scripts/auth.js",
                 "scripts/content_script.js"
             ],
             "css": [
@@ -22,13 +23,7 @@
     "web_accessible_resources": [
         {
             "resources": [
-                "style/icons/ads-warning-icon.png",
-                "style/icons/bias-warning-icon.png",
-                "style/icons/paywall-warning-icon.png",
-                "style/icons/pg13-warning-icon.png",
-                "style/icons/security-warning-icon.png",
-                "style/icons/subscription-warning-icon.png",
-                "style/icons/cookie.png"
+                "style/icons/*"
             ],
             "matches": ["http://www.google.com/*", "https://www.google.com/*"]
         }
@@ -41,17 +36,17 @@
     "action": {
         "default_popup": "popup.html",
         "default_icon": {
-            "16": "/style/Icons/eye-icon/eye-icon-16.png",
-            "32": "/style/Icons/eye-icon/eye-icon-32.png",
-            "48": "/style/Icons/eye-icon/eye-icon-48.png",
-            "128": "/style/Icons/eye-icon/eye-icon-128.png"
+            "16": "/style/icons/eye-icon/eye-icon-16.png",
+            "32": "/style/icons/eye-icon/eye-icon-32.png",
+            "48": "/style/icons/eye-icon/eye-icon-48.png",
+            "128": "/style/icons/eye-icon/eye-icon-128.png"
         }
     },
     "icons": {
-        "16": "/style/Icons/eye-icon/eye-icon-16.png",
-        "32": "/style/Icons/eye-icon/eye-icon-32.png",
-        "48": "/style/Icons/eye-icon/eye-icon-48.png",
-        "128": "/style/Icons/eye-icon/eye-icon-128.png"
+        "16": "/style/icons/eye-icon/eye-icon-16.png",
+        "32": "/style/icons/eye-icon/eye-icon-32.png",
+        "48": "/style/icons/eye-icon/eye-icon-48.png",
+        "128": "/style/icons/eye-icon/eye-icon-128.png"
     },
     "options_page": "options.html"
 }

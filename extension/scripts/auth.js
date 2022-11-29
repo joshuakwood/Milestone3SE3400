@@ -50,11 +50,12 @@ function checkUserAuthentication() {
 	});
 }
 
+
 // login temp user 
 var login_submit = document.querySelector('#login_submit');
 login_submit.onclick = loginSubmit;
 
-function loginSubmit () {
+function loginSubmit() {
 
 	// remove message prompt if there is one
 	removeMessage();
@@ -78,8 +79,8 @@ function loginSubmit () {
 	}).then(function (response) {
 		// once the server responds, run this function
 		if (response.status == 201) {
-			createMessage("User Not Logged in!", "Bad");
 			checkUserAuthentication();
+			checkUserAuthenticationPopup();
 		} else {
 			createMessage("User Does Not Exist!", "Bad");
 		}
@@ -128,4 +129,3 @@ function createUser () {
 	});;
 };
 
-checkUserAuthentication()

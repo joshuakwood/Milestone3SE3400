@@ -1,17 +1,40 @@
 
 const messages = {
-        "ads": "This site is known to use excessive advertisements.", 
-        "cookies": "This site is known to store many cookies containing sensitive personal information.", 
-        "paywall": "This site is known to have paywalls.", 
-        "bias-source": "This site is known to have extreem bias.", 
-        "cyber_safety": "This site is known for security risks.", 
-        "subscription": "This site is known for forcing account and/or email subscriptions", 
-        "family_friendly": "This site is known to have inappropriate."
+        "ads": {
+            'message':"This site is known to use excessive advertisements.",
+            'file':"icons/ads_warning_icon.png"
+        },
+        "cookies": {
+            'message':"This site is known to store many cookies containing sensitive personal information.", 
+            'file':"icons/cookie.png"
+        },
+        "paywall": {
+            'message':"This site is known to have paywalls.", 
+            'file':"icons/paywall_warning_icon.png"
+        },
+        "bias_source": {
+            'message':"This site is known to have extreem bias.", 
+            'file':"icons/bias_warning_icon.png"
+        },
+        "cyber_safety": {
+            'message':"This site is known for security risks.", 
+            'file':"icons/security_warning_icon.png"
+        },
+        "subscription": {
+            'message':"This site is known for forcing account and/or email subscriptions", 
+            'file':"icons/subscription_warning_icon.png"
+        },
+        "family_friendly": {
+            'message':"This site is known to have inappropriate.",
+            'file':"icons/pg13_warning_icon.png"
+        }
     };
 
 function addIcons(data) {
+    console.log(data);
+
     result_data = [];
-    getTawResult(result_data);
+    //getTawResult(result_data); TODO:
     getResults(result_data);
 
     var formatted_filterKeys = prepareFilter(data);
@@ -26,86 +49,86 @@ function addIcons(data) {
 
 
             if (settings['ads'] == 1) {
-                addIcon(parent, "./style/icons/ads-warning-icon.png",'ads');
+                addIcon(parent, 'ads');
             };
             if (settings['cookies'] == 1) {
-                addIcon(parent, "./style/icons/cookie.png",'cookies');
+                addIcon(parent, 'cookies');
             };
             if (settings['paywall'] == 1) {
-                addIcon(parent, "./style/icons/paywall-warning-icon.png",'paywall');
+                addIcon(parent,'paywall');
             };
-            if (settings['bias-source'] == 1) {
-                addIcon(parent, "./style/icons/bias-warning-icon.png",'bias-source');
+            if (settings['bias_source'] == 1) {
+                addIcon(parent, 'bias_source');
             };
             if (settings['cyber_safety'] == 1) {
-                addIcon(parent, "./style/icons/security-warning-icon.png",'cyber_safety');
+                addIcon(parent, 'cyber_safety');
             };
             if (settings['subscription'] == 1) {
-                addIcon(parent, "./style/icons/subscription-warning-icon.png", 'subscription');
+                addIcon(parent, 'subscription');
             };
             if (settings['family_friendly'] == 1) {
-                addIcon(parent, "./style/icons/pg13-warning-icon.png", 'family_friendly');
+                addIcon(parent, 'family_friendly');
             };
         };
     };
 };
 
-function addIcon(Obj, source, message_key) {
+function hideIconGroups(settings) {
+    if (!settings) {
+        return null;
+    };
+    var icon_classes = Object.keys(messages);
+    for (var key_i = 0; key_i< icon_classes.length; key_i++) {
+        var icon_class = document.querySelector("." + icon_classes[key_i] + "_popup");
+        if (icon_class && settings[icon_classes[key_i]] == 1) {
+            icon_class.style.display = "inline";
+        };
+    };
+}
+
+function addIcon(Obj, key) {
     var icon_container = Obj.querySelector(".icon_container");
     if (!icon_container) {
         var icon_container = document.createElement("div");
         icon_container.classList.add("icon_container");
         Obj.appendChild(icon_container);
     };
+    // create icon
     var icon = document.createElement("img");
-    icon.src = chrome.runtime.getURL(source);
-    icon.style.margin = '0.5em';
-    icon.style.width = '28px';
-    icon.style.height = '28px';
-    icon.style.transition = '300ms';
+    icon.classList.add("icon");
+    icon.classList.add("popupsearchicon");
+    icon.classList.add(key + "_popup");
+    icon.src = chrome.runtime.getURL("style/" + [messages[key].file]);
 
+    // create message
     let message = document.createElement("p");
-    message.textContent = messages[message_key];
-    message.style.overflow = 'hidden';
-    message.style.whiteSpace = 'wrap';
-    message.style.margin = '3px';
+    message.textContent = messages[key].message;
+    message.classList.add("message");
+
+    // create message box
     let messagebox = document.createElement("div");
     messagebox.appendChild(message);
-    messagebox.style.position = 'relative';
-    messagebox.style.backgroundColor = '#ffffff';
-    messagebox.style.width = '100px';
-    messagebox.style.height = 'fit-content';
-    messagebox.style.border = "solid 1px black";
+    messagebox.classList.add("popupmessagebox");
     messagebox.id = "messagebox";
 
     icon.addEventListener("mouseover", mouseOver);
     icon.addEventListener("mouseleave", mouseLeave);
-    icon.addEventListener("click", appearMessagebox);
-    icon.addEventListener("click", appearMessagebox);
+
     function mouseOver(e) {
-        icon.style.width = '32px';
-        icon.style.height = '32px';
-        icon.style.transition = '300ms';
+        appearMessagebox();
     }
     function mouseLeave(e) {
-        icon.style.width = '28px';
-        icon.style.height = '28px';
-        icon.style.transition = '300ms';
+        var parent = icon.parentElement;
+        var messagebox = parent.querySelector("#messagebox");
+        if (messagebox) {
+            parent.removeChild(messagebox); 
+        };
     }
     function appearMessagebox(e) {
         var parent = icon.parentElement;
         parent.appendChild(messagebox);
     }
-    document.addEventListener('click', function(event) {
-        var isClickInsideElement = icon_container.contains(event.target);
-        if (!isClickInsideElement) {
-            var parent = icon.parentElement;
-            var messagebox = parent.querySelector("#messagebox");
-            if (messagebox) {
-                parent.removeChild(messagebox); 
-            };
-        }
-    });
+
     icon_container.appendChild(icon);
 }
 
@@ -129,6 +152,9 @@ function prepareFilter(data) {
 
 function getResults(result_data) {
     var searchSection = document.querySelector(".v7W49e");
+    if (!searchSection) {
+        return null;
+    };
     var ResultsObj = searchSection.children;
     for (var i = 0; i < ResultsObj.length; i++) {
         var website_container = ResultsObj[i].querySelector("cite");
@@ -147,8 +173,12 @@ function getResults(result_data) {
 };
 
 function getTawResult(result_data) {
-    var searchSection = document.querySelector("#taw");
-    var ResultsObj = searchSection.children;
+    //TODO: need to fix taw section to get top result adds.
+    var tawSection = document.querySelector("#taw");
+    if (!tawSection) {
+        return null;
+    };
+    var ResultsObj = tawSection.children;
     for (var i = 0; i < ResultsObj.length; i++) {
         var website_container = ResultsObj[i].querySelector("cite");
         if (website_container) {

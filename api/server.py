@@ -47,8 +47,8 @@ class MyRequestHandler(BaseHTTPRequestHandler):
         for morsel in self.cookie.values():
             # Turn off the next to lines for 
             # enabling testing with postman
-            #morsel["samesite"] = "None"  # prevent postman to work
-            #morsel["secure"] = True  # prevent postman to work
+            morsel["samesite"] = "None"  # prevent postman to work
+            morsel["secure"] = True  # prevent postman to work
             self.send_header("Set-Cookie", morsel.OutputString())
         return None
 

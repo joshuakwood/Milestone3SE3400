@@ -99,7 +99,7 @@ function displaySettings(data) {
 			};
 			ads.appendChild(ads_input);
 
-			// bias-source
+			// bias_source
 			var bias_source = row.insertCell(-1);
 			var bias_source_input = document.createElement("input");
 			bias_source_input.type = "checkbox";
@@ -224,7 +224,7 @@ function saveWebsiteSetting() {
 		removeMessage()
         var send_data = settingChanges[key];
         
-        fetch("http://localhost:8080/users/filter-settings", {
+        fetch("http://localhost:8080/users/website-settings", {
             method: 'PUT',
             credentials: 'include',
             body: send_data,
@@ -235,7 +235,7 @@ function saveWebsiteSetting() {
             console.log(response);
             if (response.status == 201) {
                 delete settingChanges[key];
-				createMessage("New Filter Settings Saved!", "Good");
+				createMessage("New Website Settings Saved!", "Good");
                 checkUserAuthentication();
             } else {
                 createMessage("Save Failed!", "Bad");

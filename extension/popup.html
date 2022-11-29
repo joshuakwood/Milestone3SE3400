@@ -4,7 +4,7 @@
 <head>
   <link rel="stylesheet" href="style/button.css">
   <link rel="stylesheet" href="style/form.css">
-  <link rel="stylesheet" href="style/settingscard.css">
+  <link rel="stylesheet" href="style/message.css">
   <link rel="stylesheet" href="style/popup.css">
   <link rel="stylesheet" href="style/icons.css">
   <link rel="stylesheet" href="style/slideswitch.css">
@@ -24,7 +24,7 @@
 
         <div class="settings_row">
           <label class="switch">
-            <input type="checkbox" checked>
+            <input type="checkbox" id="ads_toggle" checked>
             <span class="slider round"></span>
           </label>
           <p>Advertisement Checking</p>
@@ -33,7 +33,7 @@
 
         <div class="settings_row">
           <label class="switch">
-            <input type="checkbox" checked>
+            <input type="checkbox" id="bias_toggle" checked>
             <span class="slider round"></span>
           </label>
           <p> Bias/Source Checking </p>
@@ -42,7 +42,7 @@
 
         <div class="settings_row">
           <label class="switch">
-            <input type="checkbox" checked>
+            <input type="checkbox" id="paywall_toggle" checked>
             <span class="slider round"></span>
           </label>
           <p>Monetization Checking</p>
@@ -51,7 +51,7 @@
 
         <div class="settings_row">
           <label class="switch">
-            <input type="checkbox" checked>
+            <input type="checkbox" id="security_toggle" checked>
             <span class="slider round"></span>
           </label>
           <p>Cyber Safety Checking</p>
@@ -60,7 +60,7 @@
         
         <div class="settings_row">
           <label class="switch">
-            <input type="checkbox" checked>
+            <input type="checkbox" id="family_friendly_toggle" checked>
             <span class="slider round"></span>
           </label>
           <p>Family Friendly Checking</p>
@@ -69,7 +69,7 @@
 
         <div class="settings_row">
           <label class="switch">
-            <input type="checkbox" checked>
+            <input type="checkbox" id="subscription_toggle" checked>
             <span class="slider round"></span>
           </label>
           <p>Account Checking</p>
@@ -78,7 +78,7 @@
 
         <div class="settings_row">
           <label class="switch">
-            <input type="checkbox" checked>
+            <input type="checkbox" id="cookie_toggle" checked>
             <span class="slider round"></span>
           </label>
           <p>Cookie Checking</p>
@@ -86,12 +86,17 @@
         </div>
       </section>
       <section>
-        <div class="button_group popup_button_group">
+        <div class="button_group popup_button_group" id="loginbuttons">
           <div class="button_container">
             <input id="createaccount_popup_1" class="button on" type="button" value="Create Account">
           </div>
           <div class="button_container">
             <input id="login_popup" class="button on" type="button" value="Login">
+          </div>
+        </div>
+        <div class="button_group popup_button_group" id="accountbuttons" style="display:none;">
+          <div class="button_container">
+            <input id="popupAccountSettings" class="button off" type="button" value="Account Settings">
           </div>
         </div>
       </section>
@@ -167,11 +172,13 @@
     </div>
   </div>
 </body>
-<script src="scripts/popup.js"></script>
-<script src="scripts/options_filter_settings.js"></script>
-<script src="scripts/options_account_settings.js"></script>
-<script src="scripts/button.js"></script>
-<script src="scripts/auth.js"></script>
+
+<script src="scripts/add_icons.js"></script>
 <script src="scripts/message.js"></script>
+<script src="scripts/auth.js"></script>
+<script src="scripts/popup.js"></script>
+<script src="scripts/popup_settings.js"></script>
+<script src="scripts/content_script.js"></script>
+<script src="scripts/button.js"></script>
 
 </html>
