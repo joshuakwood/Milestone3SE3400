@@ -50,14 +50,15 @@ class DataBase:
         f = open('data.json')
         default_data = json.load(f)
         settings_data = {'user_settings':{
-            'bias_source': 1,
-            'paywall':1,
-            'subscription':1,
-            'family_friendly':1,
-            'ads':1,
-            'cyber_safety':1,
-            'cookies':1
-        }, 'websites':default_data}
+                            'bias_source': 1,
+                            'paywall':1,
+                            'subscription':1,
+                            'family_friendly':1,
+                            'ads':1,
+                            'cyber_safety':1,
+                            'cookies':1
+                             }, 
+                        'websites':default_data}
         
         result_c = self.collection.add(
             {'_id': int(row_id_rt), 'doc': settings_data}).execute()
@@ -193,14 +194,14 @@ class DataBase:
             return False
         return True
 
-    def updateFilterSettings(self, website, email, new_filter_settings):
-        filters = ["ads",
-        "cookies",
-        "paywall",
-                   "bias_source",
-        "cyber_safety",
-        "subscription",
-        "family_friendly"]
+    def updateWebsiteSettings(self, website, email, new_filter_settings):
+        filters = [ "ads",
+                    "cookies",
+                    "paywall",
+                    "bias_source",
+                    "cyber_safety",
+                    "subscription",
+                    "family_friendly"]
 
         user = self.findUserByEmail(email)
         user_settings = self.collection.get_one(user['user_id'])
@@ -213,6 +214,17 @@ class DataBase:
             user_settings_dict["doc"]["websites"][website][filters[i]] = new_filter_settings[filters[i]]
         self.collection.add_or_replace_one(user["user_id"], user_settings_dict)
         #TODO: Add method to check if edits were saved, return false if not save
+        return True
+
+    def updateFilterSettings(self, email, new_filter_settings):
+
+        user = self.findUserByEmail(email)
+        user_settings = self.collection.get_one(user['user_id'])
+        user_settings_dict = dict(user_settings)
+
+        user_settings_dict["doc"]["user_settings"] = dict(json.loads(new_filter_settings))
+        self.collection.add_or_replace_one(user["user_id"], user_settings_dict)
+        # TODO: Add method to check if edits were saved, return false if not save
         return True
 
     def deleteFilter(self, website, user_id):

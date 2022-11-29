@@ -75,3 +75,7 @@ ERROR:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 255 | Report: 12
 ERROR:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 255 | Report: 127.0.1.1 - - [25/Nov/2022 23:08:04]  "ERROR - Missing last name Entry.
 ERROR:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 255 | Report: 127.0.1.1 - - [25/Nov/2022 23:11:43]  "ERROR - Missing last name Entry.
 INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 473 | Report: 127.0.1.1 - - [25/Nov/2022 23:12:30]  "INFO - User Does not exist yet.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 72 | Report: 127.0.1.1 - - [27/Nov/2022 04:09:36]  "INFO - Missing email Entry.
+INFO:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 218 | Report: 127.0.1.1 - - [29/Nov/2022 01:22:35]  "INFO - User Already Exists.
+ERROR:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 417 | Report: 127.0.1.1 - - [29/Nov/2022 05:32:25]  "ERROR - Missing website name Entry.
+ERROR:root:/mnt/s/GitHub/Milestone3SE3400/api/server.py | Line: 417 | Report: 127.0.1.1 - - [29/Nov/2022 05:34:39]  "ERROR - Missing filters name Entry.

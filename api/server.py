@@ -47,8 +47,8 @@ class MyRequestHandler(BaseHTTPRequestHandler):
         for morsel in self.cookie.values():
             # Turn off the next to lines for 
             # enabling testing with postman
-            morsel["samesite"] = "None"  # prevent postman to work
-            morsel["secure"] = True  # prevent postman to work
+            #morsel["samesite"] = "None"  # prevent postman to work
+            #morsel["secure"] = True  # prevent postman to work
             self.send_header("Set-Cookie", morsel.OutputString())
         return None
 
@@ -332,7 +332,7 @@ class MyRequestHandler(BaseHTTPRequestHandler):
             self.end_headers()
             return False
 
-    def updateFilterSettings(self):
+    def updateWebisteSettings(self):
         if 'user_id' not in self.sessionData:
             self.send_response(401, "Not Logged In")
             self.end_headers()
@@ -371,8 +371,8 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 
         db = DataBase()
         if (db.findUserByEmail(email)):
-            filterCreated = db.updateFilterSettings(website, email, new_filter_settings)
-            if filterCreated:
+            websiteUpdated = db.updateWebsiteSettings(website, email, new_filter_settings)
+            if websiteUpdated:
                 # Respond with success (201)
                 self.send_response(201, "Website Filter Updated")
                 self.end_headers()
@@ -380,6 +380,56 @@ class MyRequestHandler(BaseHTTPRequestHandler):
             else:
                 # Respond with failure
                 self.send_response(500, "Filter Does not Exist.")
+                self.end_headers()
+                return False
+        else:
+            message = 'INFO - User Does not exist yet.'
+            self.handleReports(message, getframeinfo(currentframe()), "info")
+            self.send_response(422, "User Does not exist yet")  # conflict code
+            self.end_headers()
+            return False
+
+    def updateFilterSettings(self):
+        if 'user_id' not in self.sessionData:
+            self.send_response(401, "Not Logged In")
+            self.end_headers()
+            return
+        email = self.sessionData["user_email"]
+
+        length = self.headers["Content-Length"]
+        request_body = self.rfile
+        # Capture input (the entry) from the CLIENT REQUEST
+
+        # 1) read the content length from the request header
+        Content_Length = self.headers["Content-Length"]
+
+        # 2) Read from the "rfile" request body
+        request_body = self.rfile.read(int(Content_Length)).decode("utf-8")
+
+        # 3) parse the URL-encoded request body
+        parsed_body = parse_qs(request_body)
+
+        # 4) Append the new entry to the Dictionary above (TABLE)
+        try:
+            new_filter_settings = parsed_body["filters"][0]
+        except KeyError:
+            message = 'ERROR - Missing filters name Entry.'
+            self.handleReports(message, getframeinfo(currentframe()), "error")
+            self.handleBadEntry(message)
+            return False
+
+        db = DataBase()
+        if (db.findUserByEmail(email)):
+            filterUpdated = db.updateFilterSettings(
+                email, new_filter_settings)
+            if filterUpdated:
+                # Respond with success (201)
+                self.send_response(201, "Filters Updated")
+                self.end_headers()
+                return True
+            else:
+                # Respond with failure
+                self.send_response(500, "Invalid Filter Settings")
                 self.end_headers()
                 return False
         else:
@@ -635,6 +685,9 @@ class MyRequestHandler(BaseHTTPRequestHandler):
                 return None
             elif pathList[2] == "filter-settings":
                 self.updateFilterSettings()
+                return None
+            elif pathList[2] == "website-settings":
+                self.updateWebisteSettings()
                 return None
             else:
                 self.handleNotFound("Unknown Request")
