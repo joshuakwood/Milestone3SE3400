@@ -20,3 +20,6 @@ The user settings are stored in a mysql database.  More information on the api i
 
 ## Extension
 The extension hosts the user settings pages/popups and the code required to loop through google search results pages.  
+
+# Note
+This was a group project for an HCI class.
