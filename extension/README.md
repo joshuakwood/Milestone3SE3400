@@ -1,7 +1,2 @@
-# Tab-Timer
-Timer that appears in the top right of the browser that counts up how long you have spent on that website for the day.  It will reset at the end of each day.
-
-
-# Tutorial 
-
-https://developer.chrome.com/docs/extensions/mv3/getstarted/
+# Setup
+All the code to get this extension running on your browser is contained in this file.  Download this file and follow this guide to get the extension working in your browser.  https://support.google.com/chrome_webstore/answer/2664769?hl=en
